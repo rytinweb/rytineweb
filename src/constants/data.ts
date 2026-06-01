@@ -142,8 +142,8 @@ export const VALUE_PROPS: ValueProp[] = [
 export const REVIEWS: Review[] = [
   {
     id: "rev1",
-    author: "Alex Rivers",
-    initials: "AR",
+    author: "Rahul Sharma",
+    initials: "RS",
     rating: 5,
     date: "6 days ago",
     content: "RYTINWEB transformed our digital presence completely. The speed of delivery and the premium UI feel exceeded all expectations.",
@@ -151,8 +151,8 @@ export const REVIEWS: Review[] = [
   },
   {
     id: "rev2",
-    author: "Sarah Jenkins",
-    initials: "SJ",
+    author: "Priya Patel",
+    initials: "PP",
     rating: 5,
     date: "1 week ago",
     content: "The team at RYTINWEB is incredibly professional. They delivered a highly responsive, clean Next.js architecture on budget and schedule.",
@@ -160,8 +160,8 @@ export const REVIEWS: Review[] = [
   },
   {
     id: "rev3",
-    author: "Marcus Chen",
-    initials: "MC",
+    author: "Amit Mehta",
+    initials: "AM",
     rating: 5,
     date: "4 weeks ago",
     content: "From pixel-perfect designs to lightning-fast performance, RYTINWEB is the best agency we have ever partnered with.",
@@ -169,8 +169,8 @@ export const REVIEWS: Review[] = [
   },
   {
     id: "rev4",
-    author: "Elena Rostova",
-    initials: "ER",
+    author: "Ananya Iyer",
+    initials: "AI",
     rating: 5,
     date: "2 months ago",
     content: "Outstanding communication and top-tier technical design. RYTINWEB is our go-to partner for front-end engineering and design systems.",
@@ -179,14 +179,14 @@ export const REVIEWS: Review[] = [
 ];
 
 export const SERVICE_AREAS = [
-  { name: "San Francisco", slug: "san-francisco", highlight: true },
-  { name: "New York", slug: "new-york" },
-  { name: "London", slug: "london" },
-  { name: "Toronto", slug: "toronto" },
-  { name: "Vancouver", slug: "vancouver" },
-  { name: "Berlin", slug: "berlin" },
-  { name: "Sydney", slug: "sydney" },
-  { name: "Austin", slug: "austin" },
-  { name: "Seattle", slug: "seattle" },
-  { name: "Tokyo", slug: "tokyo" },
+  { name: "Bengaluru", slug: "bengaluru", highlight: true },
+  { name: "Mumbai", slug: "mumbai" },
+  { name: "Delhi", slug: "delhi" },
+  { name: "Hyderabad", slug: "hyderabad" },
+  { name: "Pune", slug: "pune" },
+  { name: "Chennai", slug: "chennai" },
+  { name: "Noida", slug: "noida" },
+  { name: "Gurgaon", slug: "gurgaon" },
+  { name: "Kolkata", slug: "kolkata" },
+  { name: "Ahmedabad", slug: "ahmedabad" },
 ];

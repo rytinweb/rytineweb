@@ -102,9 +102,9 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 stroke-[1.5]" />
                   </div>
                   <div>
-                    <h3 className="font-extrabold text-gray-900 text-sm mb-1">San Francisco Hub</h3>
+                    <h3 className="font-extrabold text-gray-900 text-sm mb-1">Bengaluru Headquarters</h3>
                     <p className="text-gray-500 text-xs leading-relaxed font-light">
-                      100 Pine St #1100, San Francisco, CA 94111
+                      Indiranagar, Bengaluru, Karnataka 560038
                     </p>
                   </div>
                 </div>
@@ -114,9 +114,9 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 stroke-[1.5]" />
                   </div>
                   <div>
-                    <h3 className="font-extrabold text-gray-900 text-sm mb-1">London Hub</h3>
+                    <h3 className="font-extrabold text-gray-900 text-sm mb-1">Mumbai Hub</h3>
                     <p className="text-gray-500 text-xs leading-relaxed font-light">
-                      120 Whitechapel High St, London E1 7PT
+                      Bandra Kurla Complex, Mumbai, Maharashtra 400051
                     </p>
                   </div>
                 </div>

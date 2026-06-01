@@ -91,8 +91,8 @@ export default function Footer() {
               <li className="flex gap-2 items-start text-gray-300">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-white mb-0.5 text-xs">Global Presence</p>
-                  <p className="leading-relaxed text-gray-400">San Francisco • Toronto • London</p>
+                  <p className="font-semibold text-white mb-0.5 text-xs">Presence</p>
+                  <p className="leading-relaxed text-gray-400">Bengaluru • Mumbai • Delhi</p>
                 </div>
               </li>
             </ul>
