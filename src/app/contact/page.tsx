@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Phone, Mail, MapPin, CheckCircle2, MessageSquare } from "lucide-react";
+import { Mail, MapPin, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function ContactPage() {
@@ -77,8 +77,8 @@ export default function ContactPage() {
               Get In Touch
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">Contact Our Team</h1>
-            <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-              Have questions about pricing, timeline, or SEO? Send us a message and we&apos;ll reply within 24 hours.
+            <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed font-light">
+              Have questions about pricing, timelines, or frontend architecture? Send us a message and we will respond shortly.
             </p>
           </div>
         </section>
@@ -90,9 +90,9 @@ export default function ContactPage() {
             {/* Left: Contact Info */}
             <div className="lg:col-span-5 space-y-8">
               <div>
-                <h2 className="text-2xl font-black text-gray-900 mb-3">Office Locations</h2>
-                <p className="text-gray-500 text-sm leading-relaxed">
-                  We are proudly Canadian-owned, operating from our main hubs in Ontario to serve clients nationwide.
+                <h2 className="text-2xl font-black text-gray-900 mb-3">Our Digital Hubs</h2>
+                <p className="text-gray-500 text-sm leading-relaxed font-light">
+                  We operate as a modern, design-forward agency with key collaboration hubs in major technology centers.
                 </p>
               </div>
 
@@ -102,9 +102,9 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 stroke-[1.5]" />
                   </div>
                   <div>
-                    <h3 className="font-extrabold text-gray-900 text-sm mb-1">Toronto Headquarters</h3>
-                    <p className="text-gray-500 text-xs leading-relaxed">
-                      2967 Dundas St W #718, Toronto, ON M6P 1Z2
+                    <h3 className="font-extrabold text-gray-900 text-sm mb-1">San Francisco Hub</h3>
+                    <p className="text-gray-500 text-xs leading-relaxed font-light">
+                      100 Pine St #1100, San Francisco, CA 94111
                     </p>
                   </div>
                 </div>
@@ -114,22 +114,18 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 stroke-[1.5]" />
                   </div>
                   <div>
-                    <h3 className="font-extrabold text-gray-900 text-sm mb-1">Brampton Branch</h3>
-                    <p className="text-gray-500 text-xs leading-relaxed">
-                      5 Cherrycrest Drive #202, Brampton, ON L6P 3W4
+                    <h3 className="font-extrabold text-gray-900 text-sm mb-1">London Hub</h3>
+                    <p className="text-gray-500 text-xs leading-relaxed font-light">
+                      120 Whitechapel High St, London E1 7PT
                     </p>
                   </div>
                 </div>
               </div>
 
               <div className="pt-6 border-t border-gray-200/80 space-y-4 text-sm text-gray-700">
-                <a href="tel:647-689-6069" className="flex items-center gap-3 hover:text-primary transition-colors">
-                  <Phone className="w-5 h-5 text-primary" />
-                  647-689-6069
-                </a>
-                <a href="mailto:support@canadianwebdesigns.ca" className="flex items-center gap-3 hover:text-primary transition-colors">
+                <a href="mailto:hello@rytinweb.com" className="flex items-center gap-3 hover:text-primary transition-colors">
                   <Mail className="w-5 h-5 text-primary" />
-                  support@canadianwebdesigns.ca
+                  hello@rytinweb.com
                 </a>
               </div>
             </div>
@@ -204,7 +200,7 @@ export default function ContactPage() {
                         <textarea
                           name="message"
                           rows={5}
-                          placeholder="How can we help you? Please describe your web project."
+                          placeholder="How can we help you? Please describe your project."
                           value={formData.message}
                           onChange={handleInputChange}
                           className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary outline-none transition-all resize-none ${
@@ -232,7 +228,7 @@ export default function ContactPage() {
                       <CheckCircle2 className="w-16 h-16 text-primary mb-5 stroke-[1.5]" />
                       <h2 className="text-gray-900 font-extrabold text-2xl mb-3">Message Sent!</h2>
                       <p className="text-gray-500 text-sm max-w-sm mb-6 leading-relaxed">
-                        Thank you for reaching out. A representative from our Canadian Web Designs team will contact you within 24 hours.
+                        Thank you for reaching out. A RYTINWEB representative will contact you within 24 hours.
                       </p>
                       <button
                         onClick={() => setIsSuccess(false)}

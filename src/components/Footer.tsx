@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { SERVICE_AREAS } from "@/constants/data";
 
 export default function Footer() {
@@ -11,13 +11,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Column 1: Brand Info */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Canadian Web Designs</h3>
-            <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-              Professional web design, SEO, and digital marketing services across Canada since 2014.
+            <h3 className="text-lg font-bold mb-4">RYTINWEB</h3>
+            <p className="text-gray-300 text-sm mb-4 leading-relaxed font-light">
+              Engineering premium web applications, bespoke design systems, and high-performance digital frontends.
             </p>
             <div className="flex gap-2 flex-wrap">
               <a
-                href="https://facebook.com/canadianwebdesigns"
+                href="https://facebook.com/rytinweb"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200"
@@ -28,7 +28,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://instagram.com/canadianwebdesigns"
+                href="https://instagram.com/rytinweb"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200"
@@ -44,7 +44,7 @@ export default function Footer() {
           {/* Column 2: What We Do */}
           <div>
             <h3 className="text-lg font-bold mb-4">What We Do</h3>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm font-light">
               <li>
                 <Link href="/services/web-design-development" className="text-gray-300 hover:text-primary transition-colors py-1 block">
                   Web Design & Development
@@ -57,27 +57,22 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/services/seo" className="text-gray-300 hover:text-primary transition-colors py-1 block">
-                  SEO
+                  SEO Positioning
                 </Link>
               </li>
               <li>
                 <Link href="/services/social-media-optimization" className="text-gray-300 hover:text-primary transition-colors py-1 block">
-                  Social Media Optimization
+                  Social Optimization
                 </Link>
               </li>
               <li>
                 <Link href="/services/website-maintenance" className="text-gray-300 hover:text-primary transition-colors py-1 block">
-                  Website Maintenance
+                  System Maintenance
                 </Link>
               </li>
               <li>
                 <Link href="/services/ai-consultation" className="text-gray-300 hover:text-primary transition-colors py-1 block">
                   AI Consultation
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/google-ads-management" className="text-gray-300 hover:text-primary transition-colors py-1 block">
-                  Google Ads Management
                 </Link>
               </li>
             </ul>
@@ -86,40 +81,27 @@ export default function Footer() {
           {/* Column 3: Contact & Info */}
           <div>
             <h3 className="text-lg font-bold mb-4">Contact & Info</h3>
-            <ul className="space-y-4 text-sm">
+            <ul className="space-y-4 text-sm font-light">
               <li>
-                <a href="tel:647-689-6069" className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors">
-                  <Phone className="w-4 h-4 text-primary shrink-0" />
-                  647-689-6069
-                </a>
-              </li>
-              <li>
-                <a href="mailto:support@canadianwebdesigns.ca" className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors">
+                <a href="mailto:hello@rytinweb.com" className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors">
                   <Mail className="w-4 h-4 text-primary shrink-0" />
-                  support@canadianwebdesigns.ca
+                  hello@rytinweb.com
                 </a>
               </li>
               <li className="flex gap-2 items-start text-gray-300">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-white mb-0.5 text-xs">Toronto Office</p>
-                  <p className="leading-relaxed">2967 Dundas St W #718, Toronto, ON M6P 1Z2</p>
-                </div>
-              </li>
-              <li className="flex gap-2 items-start text-gray-300">
-                <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <div>
-                  <p className="font-semibold text-white mb-0.5 text-xs">Brampton Office</p>
-                  <p className="leading-relaxed">5 Cherrycrest Drive #202, Brampton, ON L6P 3W4</p>
+                  <p className="font-semibold text-white mb-0.5 text-xs">Global Presence</p>
+                  <p className="leading-relaxed text-gray-400">San Francisco • Toronto • London</p>
                 </div>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Service Areas */}
+          {/* Column 4: Hub Locations */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Service Areas</h3>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-0.5 text-sm">
+            <h3 className="text-lg font-bold mb-4">Locations</h3>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-0.5 text-sm font-light">
               {SERVICE_AREAS.map((area) => (
                 <li key={area.slug} className={area.highlight ? "col-span-2 mb-1" : ""}>
                   <Link
@@ -130,7 +112,7 @@ export default function Footer() {
                         : "text-gray-300"
                     }`}
                   >
-                    {area.highlight ? `Web Design ${area.name} ↗` : area.name}
+                    {area.highlight ? `${area.name} Hub ↗` : area.name}
                   </Link>
                 </li>
               ))}
@@ -141,16 +123,13 @@ export default function Footer() {
         {/* Bottom copyright bar */}
         <div className="border-t border-white/10 pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-400">
-            <p>© {new Date().getFullYear()} Canadian Web Designs. All rights reserved.</p>
-            <div className="flex gap-1 flex-wrap justify-center">
+            <p>© {new Date().getFullYear()} RYTINWEB. All rights reserved.</p>
+            <div className="flex gap-1 flex-wrap justify-center font-light">
               <Link href="/privacy-policy" className="hover:text-white transition-colors duration-200 px-3 py-2 min-h-[40px] flex items-center">
                 Privacy Policy
               </Link>
               <Link href="/terms-and-conditions" className="hover:text-white transition-colors duration-200 px-3 py-2 min-h-[40px] flex items-center">
                 Terms & Conditions
-              </Link>
-              <Link href="/refund-policy" className="hover:text-white transition-colors duration-200 px-3 py-2 min-h-[40px] flex items-center">
-                Refund Policy
               </Link>
             </div>
           </div>

@@ -17,8 +17,8 @@ export default function ServicesPage() {
               Our Capabilities
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">What We Do</h1>
-            <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-              We provide full-service digital design, development, SEO positioning, and marketing solutions tailored to Canadian business goals.
+            <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed font-light">
+              We provide high-performance design, frontend engineering, and search positioning systems built for digital growth.
             </p>
           </div>
         </section>

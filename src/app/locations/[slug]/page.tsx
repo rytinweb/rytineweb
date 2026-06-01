@@ -31,7 +31,7 @@ export default function LocationDetailPage({ params }: Props) {
           <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10 text-center">
             {/* Category */}
             <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
-              Local SEO & Web Design
+              Digital Positioning & Design
             </span>
 
             {/* Title */}
@@ -40,8 +40,8 @@ export default function LocationDetailPage({ params }: Props) {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base md:text-lg text-white/75 max-w-2xl mx-auto leading-relaxed">
-              We design premium, custom, high-converting websites in {area.name} and across Canada. Since 2014.
+            <p className="text-base md:text-lg text-white/75 max-w-2xl mx-auto leading-relaxed font-light">
+              We build premium, custom, high-converting React architectures for brands in {area.name}.
             </p>
           </div>
         </section>
@@ -61,9 +61,9 @@ export default function LocationDetailPage({ params }: Props) {
                 </h2>
               </div>
 
-              <div className="prose prose-gray max-w-none text-gray-600 space-y-6 leading-relaxed">
+              <div className="prose prose-gray max-w-none text-gray-600 space-y-6 leading-relaxed font-light">
                 <p>
-                  Dominate search results and convert local {area.name} customers with a custom website built by Canadian Web Designs. Since 2014, our digital architects have partnered with local businesses to design responsive, mobile-first systems.
+                  Dominate search indexes and convert customers in {area.name} with custom React frontends programmed by RYTINWEB. Our engineers partner with high-growth teams to construct responsive, modern applications.
                 </p>
                 <p>
                   Our process combines localized search engine positioning with UX/UI design patterns. This ensures your site ranks for queries relevant to {area.name} businesses, loading in under a second and driving conversions.
@@ -79,7 +79,7 @@ export default function LocationDetailPage({ params }: Props) {
                   <div className="p-5 border border-gray-150 rounded-xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
                     <ShieldCheck className="w-6 h-6 text-primary mb-3" />
                     <h4 className="font-extrabold text-gray-900 text-sm mb-2">Accredited Reliability</h4>
-                    <p className="text-xs text-gray-500 leading-relaxed">Proudly BBB Accredited with a 4.9 rating based on 180+ client reviews across Canadian cities.</p>
+                    <p className="text-xs text-gray-500 leading-relaxed">High client satisfaction rate based on design delivery, frontend speeds, and ranking performance.</p>
                   </div>
                 </div>
               </div>
@@ -92,21 +92,21 @@ export default function LocationDetailPage({ params }: Props) {
                 <h3 className="font-extrabold text-gray-900 text-lg mb-3">
                   Free {area.name} Consultation
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                  Ready to scale? Book a call with one of our web designers today to discuss a flat-rate digital strategy.
+                <p className="text-gray-500 text-sm leading-relaxed mb-6 font-light">
+                  Ready to scale? Book a call with one of our web developers today to discuss a flat-rate digital strategy.
                 </p>
                 <Link
                   href="/contact"
                   className="btn-shimmer flex items-center justify-center py-3 text-white font-bold rounded-btn text-sm bg-primary shadow-sm hover:bg-primary-600"
                 >
-                  Request a Free Quote
+                  Consult an Architect
                 </Link>
               </div>
 
               {/* Sidebar list */}
               <div className="p-6 rounded-2xl border border-gray-100 bg-white max-h-[300px] overflow-y-auto">
                 <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider mb-4">
-                  Other Service Areas
+                  Other Service Hubs
                 </h3>
                 <ul className="space-y-3 text-sm">
                   {SERVICE_AREAS.filter((a) => a.slug !== params.slug).slice(0, 10).map((a) => (

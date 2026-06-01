@@ -17,20 +17,20 @@ export default function WhyUs() {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
-              Why Canadian Web Designs
+              Why RYTINWEB
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6 leading-tight">
-              Canada&apos;s Most Trusted Web Design &amp; Digital Marketing Agency
+              Next-Gen Digital Systems Built for Growth
             </h2>
-            <div className="text-gray-600 space-y-4 leading-relaxed text-sm md:text-base">
+            <div className="text-gray-600 space-y-4 leading-relaxed text-sm md:text-base font-light">
               <p>
-                Since 2014, Canadian Web Designs has been the web design company Canada&apos;s small and medium businesses rely on to build a powerful online presence. From Toronto to Vancouver, Brampton to Calgary, our team of 25+ designers, developers, and marketers delivers websites that don&apos;t just look great — they drive real revenue.
+                We engineer high-fidelity, bespoke digital solutions that set your brand apart. By merging pixel-perfect visual design with modern performance-optimized code, we deliver systems that capture attention and drive conversions.
               </p>
               <p>
-                We believe every Canadian business deserves a professional website at an affordable price. That&apos;s why we offer transparent, flat-rate pricing with no hidden fees and no long-term contracts. Whether you need a brand-new website, an SEO overhaul, or a complete digital marketing strategy, we have a solution that fits your budget and your market.
+                Our approach is built on transparent collaboration. With flat-rate models, clear weekly milestones, and direct developer communication, we build digital assets that scale alongside your ambitions.
               </p>
               <p>
-                As a full-service web design agency, Canada-wide, our process starts with understanding your business goals, your industry, and your customers. We then craft a custom website strategy built around converting visitors into leads — not just a pretty design. Every website we build is mobile-first, fast-loading, and optimized for search engines from day one.
+                No bloated frameworks. No outdated templates. Just modern, fast, and secure frontend architectures optimized to convert visitors into clients from day one.
               </p>
             </div>
           </motion.div>

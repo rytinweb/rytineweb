@@ -21,10 +21,10 @@ export default function Hero() {
 
   const servicesList = [
     "Web Design & Development",
-    "SEO",
+    "SEO Positioning",
     "Graphic Design",
-    "Social Media",
-    "Website Maintenance",
+    "Social Optimization",
+    "System Maintenance",
     "AI Consultation",
   ];
 
@@ -123,7 +123,7 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass mb-8">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(0,170,223,0.8)]" />
               <span className="text-white/80 text-xs md:text-sm font-medium tracking-wide">
-                Toronto’s Top-Rated Web Design Agency · Serving All of Canada
+                Premium Web Design &amp; Frontend Engineering Agency
               </span>
             </div>
 
@@ -132,14 +132,13 @@ export default function Hero() {
               className="font-black text-white leading-tight mb-6"
               style={{ fontSize: "clamp(2.4rem, 5.5vw, 4rem)", lineHeight: 1.1 }}
             >
-              Web Design Toronto <br />
-              <span className="gradient-text-animated">& Across Canada</span>
+              Engineered to Scale <br />
+              <span className="gradient-text-animated">Bespoke Digital Frontends</span>
             </h1>
 
             {/* Description */}
-            <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-lg mb-10">
-              The web design agency Canada trusts for results.{" "}
-              <span className="font-bold text-primary-300">180+ five-star reviews</span> across 24 cities nationwide since 2014.
+            <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-lg mb-10 font-light">
+              High-performance Next.js architectures, custom design systems, and SEO positioning programmed for fast-growing brands.
             </p>
 
             {/* CTA Buttons */}
@@ -148,7 +147,7 @@ export default function Hero() {
                 href="/contact"
                 className="btn-shimmer group inline-flex items-center justify-center gap-2 px-8 py-4 text-white font-extrabold rounded-btn text-base transition-all duration-300 bg-primary shadow-[0_4px_28px_rgba(0,170,223,0.45)] hover:bg-primary-600"
               >
-                Get a Free Quote
+                Get In Touch
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
@@ -167,7 +166,7 @@ export default function Hero() {
                 ))}
               </div>
               <span className="text-white/60 text-sm font-medium">
-                180+ Five Star Reviews on Google
+                Highly-rated digital craftsmanship
               </span>
             </div>
           </motion.div>
@@ -214,14 +213,14 @@ export default function Hero() {
                       <div className="flex items-center gap-2 mb-2">
                         <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                         <span className="text-xs font-bold tracking-widest uppercase text-primary">
-                          Free Quote
+                          Connect
                         </span>
                       </div>
                       <h2 className="text-white font-extrabold text-xl leading-tight">
                         Get Your Project Started
                       </h2>
                       <p className="text-white/50 text-xs mt-1">
-                        No obligation ✌ Reply within 24 hrs
+                        Launch your platform today
                       </p>
                     </div>
 
@@ -316,7 +315,7 @@ export default function Hero() {
                         disabled={isSubmitting}
                         className="btn-shimmer w-full py-4 rounded-xl text-white font-extrabold text-sm transition-all duration-300 bg-gradient-to-r from-primary-600 to-primary shadow-[0_4px_24px_rgba(0,170,223,0.35)] hover:shadow-[0_6px_30px_rgba(0,170,223,0.5)] cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
                       >
-                        {isSubmitting ? "Sending Request..." : "Get My Free Quote 🎯"}
+                        {isSubmitting ? "Sending Request..." : "Get In Touch 🚀"}
                       </button>
                     </div>
 
@@ -336,8 +335,8 @@ export default function Hero() {
                     <h3 className="text-white font-extrabold text-2xl mb-3">
                       Thank You!
                     </h3>
-                    <p className="text-white/80 text-sm leading-relaxed max-w-sm mb-6">
-                      Your request has been received. A senior web architect from our team will contact you within 24 hours.
+                    <p className="text-white/80 text-sm leading-relaxed max-w-sm mb-6 font-light">
+                      Your request has been received. Our team will contact you shortly.
                     </p>
                     <button
                       onClick={() => setIsSuccess(false)}

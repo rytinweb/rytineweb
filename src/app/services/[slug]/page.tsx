@@ -82,7 +82,7 @@ export default function ServiceDetailPage({ params }: Props) {
 
               <div className="prose prose-gray max-w-none text-gray-600 space-y-6 leading-relaxed">
                 <p>
-                  At Canadian Web Designs, we build tailored digital models that align perfectly with your business metrics. We recognize that a professional web framework is more than just graphics; it is the virtual storefront of your business.
+                  At RYTINWEB, we build tailored digital systems that align with your product objectives. We recognize that a premium application framework is more than just graphics; it is the engine of your brand growth.
                 </p>
                 <p>
                   Our multi-disciplinary architects combine modern web technologies (including Next.js, React, Tailwind CSS, and headless architectures) with robust search engine positioning models. This ensures your service details rank on search indexes and convert passive visitors into active leads.

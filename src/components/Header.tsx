@@ -62,7 +62,7 @@ export default function Header() {
           <Link href="/" className="flex items-center shrink-0 group">
             <img
               src="/logos/logo.png"
-              alt="Canadian Web Designs"
+              alt="RYTINWEB"
               className="h-9 w-auto transition-transform duration-200 group-hover:scale-105 object-contain"
             />
           </Link>
@@ -150,30 +150,6 @@ export default function Header() {
 
           {/* Right Action Bar */}
           <div className="flex items-center gap-3">
-            {/* Phone */}
-            <a
-              href="tel:647-689-6069"
-              className="hidden md:flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-primary transition-colors duration-200"
-            >
-              <Phone className="w-4 h-4 text-primary" />
-              647-689-6069
-            </a>
-
-            {/* Language switch */}
-            <div className="relative group">
-              <button
-                disabled
-                className="text-sm font-semibold text-gray-400/60 w-11 h-11 flex items-center justify-center cursor-not-allowed select-none rounded-full hover:bg-gray-50"
-                aria-label="French version coming soon"
-                title="Version française — bientôt disponible"
-              >
-                FR
-              </button>
-              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1.5 bg-gray-900 text-white text-[10px] rounded shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
-                Bientôt / Coming soon
-              </span>
-            </div>
-
             {/* Get In Touch CTA */}
             <Link
               href="/contact"
@@ -271,21 +247,11 @@ export default function Header() {
 
               {/* Mobile Details */}
               <div className="flex flex-col gap-4 pt-4 mt-auto">
-                <a
-                  href="tel:647-689-6069"
-                  className="flex items-center gap-3 text-base font-bold text-gray-900 hover:text-primary transition-colors py-2"
-                >
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <Phone className="w-4 h-4 text-primary" />
-                  </div>
-                  647-689-6069
-                </a>
-
                 <Link
                   href="/contact"
                   className="btn-shimmer flex items-center justify-center w-full py-4 text-white font-extrabold rounded-btn text-base bg-primary shadow-[0_4px_16px_rgba(0,170,223,0.35)]"
                 >
-                  Get a Free Quote
+                  Get In Touch
                 </Link>
               </div>
             </div>

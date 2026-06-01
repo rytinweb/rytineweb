@@ -234,7 +234,7 @@ export default function GoogleReviews() {
         {/* See All CTA */}
         <div className="text-center mt-8">
           <a
-            href="https://www.google.com/search?q=Canadian+Web+Designs+Reviews"
+            href="https://www.google.com/search?q=RYTINWEB+Reviews"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-gray-200 hover:border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-semibold text-sm transition-all duration-150 shadow-sm"

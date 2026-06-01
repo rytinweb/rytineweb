@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function CTA() {
   const checkmarks = [
     "No long-term contracts",
-    "Free initial consultation",
-    "Results guaranteed",
+    "Transparent pricing",
+    "Next-gen engineering",
   ];
 
   return (
@@ -60,8 +60,8 @@ export default function CTA() {
           className="font-black text-white mb-6 leading-tight"
           style={{ fontSize: "clamp(2rem, 5.5vw, 3.2rem)", lineHeight: 1.15 }}
         >
-          Ready to Grow <br />
-          <span className="gradient-text-animated">Your Business?</span>
+          Ready to Scale <br />
+          <span className="gradient-text-animated">Your Platform?</span>
         </motion.h2>
 
         <motion.p
@@ -69,9 +69,9 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
         >
-          Get a free consultation and see exactly how we can help you dominate your market online.
+          Connect with our design engineers to get a custom development roadmap for your application.
         </motion.p>
 
         {/* Buttons Row */}
@@ -86,15 +86,14 @@ export default function CTA() {
             href="/contact"
             className="btn-shimmer group inline-flex items-center justify-center gap-2 px-10 py-5 text-white font-black rounded-btn text-lg transition-all duration-300 bg-primary shadow-[0_4px_32px_rgba(0,170,223,0.5)] hover:bg-primary-600"
           >
-            Book a Free Call
+            Get In Touch
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Link>
           <a
-            href="tel:647-689-6069"
+            href="mailto:hello@rytinweb.com"
             className="inline-flex items-center justify-center gap-2 px-10 py-5 glass text-white font-bold rounded-btn text-lg hover:bg-white/15 transition-all duration-300"
           >
-            <Phone className="w-5 h-5 text-primary shrink-0" />
-            647-689-6069
+            Email Us
           </a>
         </motion.div>
 

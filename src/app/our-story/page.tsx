@@ -1,14 +1,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
-import { Award, Compass, Star } from "lucide-react";
 
 export default function OurStoryPage() {
   const milestones = [
-    { year: "2014", title: "Founding", desc: "Started as a small local agency in Toronto focused on local business SEO positioning." },
-    { year: "2018", title: "Expansion", desc: "Opened our Brampton office branch and reached a team of 10+ designers and developers." },
-    { year: "2022", title: "Accreditation", desc: "Awarded BBB accreditation and reached 150+ five-star reviews on Google." },
-    { year: "2024+", title: "Next.js Rebuild", desc: "Migrated our architecture to Next.js App Router and TypeScript, providing local businesses with enterprise-grade tech stacks." },
+    { year: "2020", title: "Founding", desc: "Established RYTINWEB to bridge the gap between creative visual design and frontend software engineering." },
+    { year: "2022", title: "Design Systems", desc: "Expanded our focus to premium design systems, helping startups build clean, reusable digital brand libraries." },
+    { year: "2024", title: "Architecture Shift", desc: "Adopted Next.js App Router and headless setups as our default stack, prioritizing load times and conversion metrics." },
+    { year: "2026+", title: "Next Gen", desc: "Developing custom web environments and AI-assisted workflows to accelerate developer velocity and search visibility." },
   ];
 
   return (
@@ -24,8 +23,8 @@ export default function OurStoryPage() {
               Our Journey
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">Our Story</h1>
-            <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-              How we scaled from a small local consulting desk to one of Canada&apos;s top-rated digital design agencies.
+            <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed font-light">
+              How we scaled from a minimal design workshop to a premium, high-performance digital engineering agency.
             </p>
           </div>
         </section>
@@ -35,18 +34,18 @@ export default function OurStoryPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
             {/* Left Story Text */}
-            <div className="lg:col-span-6 space-y-6 text-gray-600 leading-relaxed text-sm md:text-base">
+            <div className="lg:col-span-6 space-y-6 text-gray-600 leading-relaxed text-sm md:text-base font-light">
               <h2 className="text-2xl md:text-3xl font-black text-gray-900 leading-tight">
-                Over a decade of web design excellence
+                Bespoke engineering, designed to perform
               </h2>
               <p>
-                In 2014, our founder recognized a massive gap in the Canadian digital agency market. Small business owners were being forced to choose between overpriced corporate agencies charging five-figure setups, or unverified freelancers with unpredictable support timelines.
+                RYTINWEB was founded to address a critical challenge in the digital space: the disconnect between visual design and technical execution. Too often, beautiful designs are bottlenecked by slow, legacy code, or high-performance code suffers from poor visual layouts.
               </p>
               <p>
-                Canadian Web Designs was established with a clear objective: provide transparent, flat-rate, high-performance web development.
+                We established RYTINWEB to bring both disciplines under one unified workflow. We write clean, semantic code, optimize performance, and design interfaces that capture brand identity.
               </p>
               <p>
-                Today, our team of 25+ developers, graphic designers, and SEO analysts continues that legacy. We manage web infrastructures for 500+ businesses across Canada, keeping their servers fast, secure, and positioned to drive leads.
+                Today, we partner with high-growth teams and companies globally to launch, iterate, and maintain high-fidelity digital platforms. By emphasizing speed, usability, and clean typography, we build digital interfaces that convert.
               </p>
             </div>
 
@@ -63,7 +62,7 @@ export default function OurStoryPage() {
                   <h3 className="font-extrabold text-gray-900 text-base mb-1.5">
                     {m.title}
                   </h3>
-                  <p className="text-gray-500 text-xs md:text-sm leading-relaxed">
+                  <p className="text-gray-500 text-xs md:text-sm leading-relaxed font-light">
                     {m.desc}
                   </p>
                 </div>

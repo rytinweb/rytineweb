@@ -42,16 +42,16 @@ export default function Services() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4"
           >
-            Full-Service Digital Solutions
+            Modern Product Capabilities
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.2 }}
-            className="text-base md:text-lg text-white/50 max-w-xl mx-auto"
+            className="text-base md:text-lg text-white/50 max-w-xl mx-auto font-light"
           >
-            Everything you need to dominate your market online — under one roof.
+            We engineer clean codebases, scalable design systems, and conversion-optimized frontends.
           </motion.p>
         </div>
 

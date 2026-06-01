@@ -82,7 +82,7 @@ export default function Preloader() {
               >
                 <img 
                   src="/logos/logo.png" 
-                  alt="Canadian Web Designs Logo" 
+                  alt="RYTINWEB Logo" 
                   className="w-[50px] h-[50px] object-contain filter drop-shadow-[0_0_8px_rgba(0,170,223,0.6)]" 
                 />
               </div>
@@ -91,10 +91,10 @@ export default function Preloader() {
             {/* Brand Title */}
             <div className="text-center">
               <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-wider mb-2">
-                Canadian <span className="text-primary">Web Designs</span>
+                RYTIN<span className="text-primary">WEB</span>
               </h1>
               <p className="text-[10px] md:text-xs text-primary/60 tracking-[0.22em] uppercase font-semibold">
-                Building Brands Online
+                Digital Architecture
               </p>
             </div>
 

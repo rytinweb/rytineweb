@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 
 export default function Awards() {
   const badges = [
-    { src: "/badges/designrush.png", alt: "Canadian Web Designs featured on DesignRush", height: 50, className: "h-10 md:h-12" },
-    { src: "/badges/reliable.png", alt: "Canadian Web Designs top-rated reliable business badge", height: 60, className: "h-12 md:h-14" },
-    { src: "/badges/clever-canadian.png", alt: "Canadian Web Designs awarded Canada Best web agency", height: 60, className: "h-12 md:h-14" },
-    { src: "/badges/clutch.png", alt: "Canadian Web Designs top agency badge on Clutch", height: 40, className: "h-8 md:h-10" },
-    { src: "/badges/bbb.png", alt: "Canadian Web Designs BBB accredited business badge", height: 55, className: "h-12 md:h-14" },
+    { src: "/badges/designrush.png", alt: "RYTINWEB featured on DesignRush", height: 50, className: "h-10 md:h-12" },
+    { src: "/badges/reliable.png", alt: "RYTINWEB top-rated reliable business badge", height: 60, className: "h-12 md:h-14" },
+    { src: "/badges/clever-canadian.png", alt: "RYTINWEB awarded best web agency", height: 60, className: "h-12 md:h-14" },
+    { src: "/badges/clutch.png", alt: "RYTINWEB top agency badge on Clutch", height: 40, className: "h-8 md:h-10" },
+    { src: "/badges/bbb.png", alt: "RYTINWEB BBB accredited business badge", height: 55, className: "h-12 md:h-14" },
   ];
 
   return (

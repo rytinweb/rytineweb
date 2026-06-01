@@ -1,13 +1,25 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
-import { Users, Target, Heart } from "lucide-react";
+import { Users, Target, Sparkles } from "lucide-react";
 
 export default function WhoWeArePage() {
   const values = [
-    { title: "Team Collaboration", desc: "Our staff of 25+ designers, developers, and local SEO managers work closely with clients to build digital frontends.", icon: Users },
-    { title: "Metric Alignment", desc: "We align website layouts with client conversion rates, ensuring a high-performance ROI for every project.", icon: Target },
-    { title: "Canadian Pride", desc: "Operating proudly in Canada since 2014, we understand local market dynamics and small business budgets.", icon: Heart },
+    { 
+      title: "Design-Driven Engineering", 
+      desc: "Our software engineers, UX designers, and search strategists collaborate directly to construct high-fidelity digital platforms.", 
+      icon: Users 
+    },
+    { 
+      title: "Metric Alignment", 
+      desc: "We prioritize conversion metrics, speed metrics, and responsive usability to drive compounding growth for our partners.", 
+      icon: Target 
+    },
+    { 
+      title: "Premium Frameworks", 
+      desc: "We program bespoke React and Next.js applications featuring fluid animations and modular, maintainable code architectures.", 
+      icon: Sparkles 
+    },
   ];
 
   return (
@@ -20,11 +32,11 @@ export default function WhoWeArePage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-primary/20 filter blur-[90px] opacity-35" />
           <div className="relative z-10">
             <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
-              About Us
+              Agency profile
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">Who We Are</h1>
-            <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-              We are a full-service web design and digital marketing agency based in Canada, helping small business owners thrive online.
+            <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed font-light">
+              We are a design-forward digital engineering agency specializing in high-performance frontends and premium brand experiences.
             </p>
           </div>
         </section>
@@ -33,18 +45,18 @@ export default function WhoWeArePage() {
         <section className="py-16 md:py-24 max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
-            <div className="space-y-6 text-gray-600 leading-relaxed text-sm md:text-base">
+            <div className="space-y-6 text-gray-600 leading-relaxed text-sm md:text-base font-light">
               <h2 className="text-2xl md:text-3xl font-black text-gray-900 leading-tight">
-                Empowering Canadian Businesses with Premium Digital Frontends
+                Sleek Digital Frontends Engineered for High-Growth Brands
               </h2>
               <p>
-                Founded in 2014, Canadian Web Designs grew from a small local agency into a robust nationwide agency. We operate office branches in Toronto and Brampton, employing a talented team of 25+ digital architects.
+                RYTINWEB is a modern web development agency built for the next generation of digital products. We bridge the gap between creative visual artistry and strict frontend software engineering.
               </p>
               <p>
-                We believe that every small business owner deserves access to high-performance Next.js architectures, sleek typography, and robust local search visibility. That is why we provide flat-rate, transparent packages with zero hidden fees and no long-term contracts.
+                We believe that premium web design should be transparent and accessible. We offer clean, flat-rate engagement structures to deliver custom-coded Next.js architectures that load instantly and capture intent.
               </p>
               <p>
-                Our philosophy is simple: we design websites that work. By aligning our layout design patterns with user experience, we translate passive digital traffic into sales leads.
+                Our philosophy centers on minimal, high-impact design. Every spacing ratio, typeface weight, and micro-interaction is intentionally crafted to elevate your brand presence.
               </p>
             </div>
 
