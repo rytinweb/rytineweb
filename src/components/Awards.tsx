@@ -1,14 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Awards() {
   const badges = [
-    { src: "/badges/designrush.png", alt: "RYTINWEB featured on DesignRush", height: 50, className: "h-10 md:h-12" },
-    { src: "/badges/reliable.png", alt: "RYTINWEB top-rated reliable business badge", height: 60, className: "h-12 md:h-14" },
-    { src: "/badges/clever-canadian.png", alt: "RYTINWEB awarded best web agency", height: 60, className: "h-12 md:h-14" },
-    { src: "/badges/clutch.png", alt: "RYTINWEB top agency badge on Clutch", height: 40, className: "h-8 md:h-10" },
-    { src: "/badges/bbb.png", alt: "RYTINWEB BBB accredited business badge", height: 55, className: "h-12 md:h-14" },
+    { src: "/badges/designrush.png", alt: "RYTINWEB featured on DesignRush", width: 150, height: 50, className: "h-10 md:h-12" },
+    { src: "/badges/reliable.png", alt: "RYTINWEB top-rated reliable business badge", width: 120, height: 60, className: "h-12 md:h-14" },
+    { src: "/badges/clever-canadian.png", alt: "RYTINWEB awarded best web agency", width: 120, height: 60, className: "h-12 md:h-14" },
+    { src: "/badges/clutch.png", alt: "RYTINWEB top agency badge on Clutch", width: 100, height: 40, className: "h-8 md:h-10" },
+    { src: "/badges/bbb.png", alt: "RYTINWEB BBB accredited business badge", width: 120, height: 55, className: "h-12 md:h-14" },
   ];
 
   return (
@@ -30,9 +31,11 @@ export default function Awards() {
               transition={{ duration: 0.4, delay: idx * 0.08 }}
               className="flex items-center justify-center shrink-0"
             >
-              <img
+              <Image
                 src={badge.src}
                 alt={badge.alt}
+                width={badge.width}
+                height={badge.height}
                 className={`${badge.className} w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-200 select-none pointer-events-auto`}
               />
             </motion.div>

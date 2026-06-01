@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle2, Star } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   const [formData, setFormData] = useState({
@@ -81,10 +82,13 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden flex items-center min-h-[calc(100vh-70px)] bg-dark pt-24 pb-16">
       {/* Background Image */}
-      <img
+      <Image
         src="/images/hero-leading-web-design.png"
         alt="Web Design Background"
-        className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none opacity-45"
+        fill
+        sizes="100vw"
+        priority
+        className="object-cover object-center select-none pointer-events-none opacity-45 z-0"
       />
 
       {/* Dark Gradients Layer */}

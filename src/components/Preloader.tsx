@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function Preloader() {
   const [progress, setProgress] = useState(0);
@@ -35,7 +36,9 @@ export default function Preloader() {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] } }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden pointer-events-auto select-none"
+          className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden select-none ${
+            isLoaded ? "pointer-events-none" : "pointer-events-auto"
+          }`}
           style={{
             background: "linear-gradient(135deg, #010C1E 0%, #041830 60%, #010C1E 100%)",
           }}
@@ -80,10 +83,13 @@ export default function Preloader() {
                 className="w-full h-full rounded-full bg-gradient-to-br from-[#0A2040] to-[#010C1E] border-1.5 border-primary/35 shadow-[0_0_40px_rgba(0,170,223,0.4),_inset_0_1px_0_rgba(0,170,223,0.2)] flex items-center justify-center"
                 style={{ animation: "pulse 3s ease-in-out infinite" }}
               >
-                <img 
+                <Image 
                   src="/logos/logo.png" 
                   alt="RYTINWEB Logo" 
-                  className="w-[50px] h-[50px] object-contain filter drop-shadow-[0_0_8px_rgba(0,170,223,0.6)]" 
+                  width={50}
+                  height={50}
+                  priority
+                  className="object-contain filter drop-shadow-[0_0_8px_rgba(0,170,223,0.6)]" 
                 />
               </div>
             </div>

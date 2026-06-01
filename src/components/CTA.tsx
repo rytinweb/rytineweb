@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CTA() {
   const checkmarks = [
@@ -14,10 +15,12 @@ export default function CTA() {
   return (
     <section className="relative py-20 overflow-hidden bg-dark">
       {/* Background Image Overlay */}
-      <img
+      <Image
         src="/blog/seo-services-london-ontario.png"
         alt="SEO Growth Graph Overlay"
-        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-[0.18] select-none"
+        fill
+        sizes="(max-width: 1024px) 100vw, 1280px"
+        className="object-cover object-center pointer-events-none opacity-[0.18] select-none z-0"
       />
 
       {/* Dark Gradient Overlay */}

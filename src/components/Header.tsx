@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { NAV_ITEMS } from "@/constants/data";
+import Image from "next/image";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,7 @@ export default function Header() {
         setScrolled(false);
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -60,9 +61,12 @@ export default function Header() {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8 flex items-center justify-between h-full">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0 group">
-            <img
+            <Image
               src="/logos/logo.png"
-              alt="RYTINWEB"
+              alt="RYTINWEB Logo"
+              width={140}
+              height={36}
+              priority
               className="h-9 w-auto transition-transform duration-200 group-hover:scale-105 object-contain"
             />
           </Link>

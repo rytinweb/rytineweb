@@ -4,15 +4,18 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
 import { SERVICE_ITEMS } from "@/constants/data";
+import Image from "next/image";
 
 export default function Services() {
   return (
     <section className="relative overflow-hidden py-20 bg-dark-gray border-b border-white/5">
       {/* Background Image overlay */}
-      <img
+      <Image
         src="/blog/web-design-company.png"
         alt="Web Design Background Overlay"
-        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-[0.15] select-none"
+        fill
+        sizes="(max-width: 1024px) 100vw, 1280px"
+        className="object-cover object-center pointer-events-none opacity-[0.15] select-none z-0"
       />
 
       {/* Dark overlay */}
