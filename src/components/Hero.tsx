@@ -91,18 +91,10 @@ export default function Hero() {
         className="object-cover object-center select-none pointer-events-none opacity-45 z-0"
       />
 
-      {/* Dark Gradients Layer */}
+      {/* Dark Overlay Layer */}
       <div 
-        className="absolute inset-0 pointer-events-none" 
-        style={{
-          background: "linear-gradient(105deg, rgba(1,12,30,0.85) 0%, rgba(1,12,30,0.60) 45%, rgba(1,12,30,0.30) 100%)",
-        }}
+        className="absolute inset-0 pointer-events-none bg-dark/85" 
       />
-
-      {/* Pulsing Blur Orbs */}
-      <div className="absolute animate-orb pointer-events-none top-[5%] left-[2%] w-[300px] h-[300px] md:w-[600px] md:h-[600px] rounded-full bg-primary/30 filter blur-[80px] md:blur-[130px] opacity-35" />
-      <div className="absolute animate-orb pointer-events-none bottom-0 right-0 w-[240px] h-[240px] md:w-[480px] md:h-[480px] rounded-full bg-primary/20 filter blur-[70px] md:blur-[110px] opacity-25" style={{ animationDelay: "2.5s" }} />
-      <div className="absolute animate-orb pointer-events-none top-[40%] right-[30%] w-[150px] h-[150px] md:w-[300px] md:h-[300px] rounded-full bg-accent-light/15 filter blur-[60px] md:blur-[90px] opacity-18" style={{ animationDelay: "1.2s" }} />
 
       {/* Subtle Dot Grid */}
       <div 
@@ -125,7 +117,7 @@ export default function Hero() {
           >
             {/* Top Tagline Badge */}
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass mb-8">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(0,170,223,0.8)]" />
+              <span className="w-2 h-2 rounded-full bg-white animate-pulse shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
               <span className="text-white/80 text-xs md:text-sm font-medium tracking-wide">
                 Premium Web Design &amp; Frontend Engineering Agency
               </span>
@@ -149,14 +141,14 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Link
                 href="/contact"
-                className="btn-shimmer group inline-flex items-center justify-center gap-2 px-8 py-4 text-white font-extrabold rounded-btn text-base transition-all duration-300 bg-primary shadow-[0_4px_28px_rgba(0,170,223,0.45)] hover:bg-primary-600"
+                className="btn-shimmer group inline-flex items-center justify-center gap-2 px-8 py-4 text-[#0A0A0A] font-extrabold rounded-btn text-base transition-all duration-300 bg-white hover:bg-zinc-200 shadow-md"
               >
                 Get In Touch
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center justify-center px-8 py-4 glass text-white font-bold rounded-btn text-base hover:bg-white/15 transition-all duration-300"
+                className="inline-flex items-center justify-center px-8 py-4 border border-white bg-transparent text-white font-bold rounded-btn text-base hover:bg-white/10 transition-all duration-300"
               >
                 View Our Work
               </Link>
@@ -166,7 +158,7 @@ export default function Hero() {
             <div className="flex items-center gap-3">
               <div role="img" aria-label="5 out of 5 stars" className="inline-flex items-center gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  <Star key={i} className="w-5 h-5 text-zinc-400 fill-current" />
                 ))}
               </div>
               <span className="text-white/60 text-sm font-medium">
@@ -185,10 +177,10 @@ export default function Hero() {
             <div 
               className="rounded-2xl p-6 md:p-8 relative overflow-hidden"
               style={{
-                background: "rgba(0, 15, 35, 0.85)",
+                background: "rgba(23, 23, 23, 0.85)",
                 backdropFilter: "blur(24px)",
-                border: "1px solid rgba(0, 170, 223, 0.25)",
-                boxShadow: "0 32px 80px rgba(0, 0, 0, 0.5), 0 0 50px rgba(0, 170, 223, 0.08)",
+                border: "1px solid #27272A",
+                boxShadow: "0 32px 80px rgba(0, 0, 0, 0.6)",
               }}
             >
               <AnimatePresence mode="wait">
@@ -215,8 +207,8 @@ export default function Hero() {
                     {/* Form Header */}
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                        <span className="text-xs font-bold tracking-widest uppercase text-primary">
+                        <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                        <span className="text-xs font-bold tracking-widest uppercase text-white">
                           Connect
                         </span>
                       </div>
@@ -238,8 +230,8 @@ export default function Hero() {
                             placeholder="First Name *"
                             value={formData.firstName}
                             onChange={handleInputChange}
-                            className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-white/5 border ${
-                              errors.firstName ? "border-red-500 focus:ring-red-400" : "border-white/10"
+                            className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-[#111111]/50 border ${
+                              errors.firstName ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
                             }`}
                           />
                           {errors.firstName && (
@@ -253,8 +245,8 @@ export default function Hero() {
                             placeholder="Last Name *"
                             value={formData.lastName}
                             onChange={handleInputChange}
-                            className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-white/5 border ${
-                              errors.lastName ? "border-red-500 focus:ring-red-400" : "border-white/10"
+                            className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-[#111111]/50 border ${
+                              errors.lastName ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
                             }`}
                           />
                           {errors.lastName && (
@@ -270,8 +262,8 @@ export default function Hero() {
                           placeholder="Email Address *"
                           value={formData.email}
                           onChange={handleInputChange}
-                          className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-white/5 border ${
-                            errors.email ? "border-red-500 focus:ring-red-400" : "border-white/10"
+                          className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border ${
+                            errors.email ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
                           }`}
                         />
                         {errors.email && (
@@ -286,7 +278,7 @@ export default function Hero() {
                           placeholder="Phone Number (Optional)"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-white/5 border border-white/10"
+                          className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border border-[#27272A]"
                         />
                       </div>
 
@@ -295,15 +287,15 @@ export default function Hero() {
                           name="service"
                           value={formData.service}
                           onChange={handleInputChange}
-                          className={`w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-white/5 border ${
-                            errors.service ? "border-red-500 focus:ring-red-400" : "border-white/10"
+                          className={`w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border ${
+                            errors.service ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
                           } ${formData.service ? "text-white" : "text-white/40"}`}
                         >
-                          <option value="" className="bg-[#0a1628]" disabled>
+                          <option value="" className="bg-[#171717]" disabled>
                             Select a Service *
                           </option>
                           {servicesList.map((srv) => (
-                            <option key={srv} value={srv} className="bg-[#0a1628]">
+                            <option key={srv} value={srv} className="bg-[#171717]">
                               {srv}
                             </option>
                           ))}
@@ -317,7 +309,7 @@ export default function Hero() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="btn-shimmer w-full py-4 rounded-xl text-white font-extrabold text-sm transition-all duration-300 bg-gradient-to-r from-primary-600 to-primary shadow-[0_4px_24px_rgba(0,170,223,0.35)] hover:shadow-[0_6px_30px_rgba(0,170,223,0.5)] cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
+                        className="btn-shimmer w-full py-4 rounded-xl text-[#0A0A0A] font-extrabold text-sm transition-all duration-300 bg-white hover:bg-zinc-200 shadow-md cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? "Sending Request..." : "Get In Touch 🚀"}
                       </button>
@@ -335,7 +327,7 @@ export default function Hero() {
                     transition={{ duration: 0.3 }}
                     className="flex flex-col items-center justify-center text-center py-10"
                   >
-                    <CheckCircle2 className="w-16 h-16 text-primary mb-5 stroke-[1.5]" />
+                    <CheckCircle2 className="w-16 h-16 text-white mb-5 stroke-[1.5]" />
                     <h3 className="text-white font-extrabold text-2xl mb-3">
                       Thank You!
                     </h3>
@@ -344,7 +336,7 @@ export default function Hero() {
                     </p>
                     <button
                       onClick={() => setIsSuccess(false)}
-                      className="px-6 py-2.5 rounded-lg border border-primary/30 text-white hover:bg-primary/10 transition-colors text-xs font-semibold"
+                      className="px-6 py-2.5 rounded-lg border border-zinc-700 text-white hover:bg-white/10 transition-colors text-xs font-semibold"
                     >
                       Submit Another Request
                     </button>

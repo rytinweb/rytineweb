@@ -54,8 +54,8 @@ export default function Header() {
       <header
         className={`fixed top-0 w-full z-40 h-header-h transition-all duration-300 ${
           scrolled
-            ? "bg-dark/95 backdrop-blur-md shadow-lg border-b border-white/5"
-            : "bg-dark border-b border-white/5 shadow-sm"
+            ? "bg-dark/95 backdrop-blur-md shadow-lg border-b border-[#27272A]"
+            : "bg-dark border-b border-[#27272A] shadow-sm"
         }`}
       >
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8 flex items-center justify-between h-full">
@@ -87,7 +87,7 @@ export default function Header() {
                   >
                     <button
                       className={`flex items-center gap-1 text-sm font-semibold transition-colors duration-200 ${
-                        isActive ? "text-primary font-bold" : "text-white/80 hover:text-primary"
+                        isActive ? "text-white font-bold" : "text-white hover:text-zinc-300"
                       }`}
                     >
                       {item.label}
@@ -108,7 +108,7 @@ export default function Header() {
                           transition={{ duration: 0.15 }}
                           className="absolute left-0 top-full pt-2 z-50 min-w-[260px]"
                         >
-                          <div className="bg-dark/95 backdrop-blur-md rounded-2xl py-2 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                          <div className="bg-[#171717]/95 backdrop-blur-md rounded-2xl py-2 border border-[#27272A] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                             {item.children?.map((child) => {
                               const isChildActive = pathname === child.href;
                               return (
@@ -117,8 +117,8 @@ export default function Header() {
                                   href={child.href}
                                   className={`block px-5 py-2.5 text-sm transition-all duration-150 font-medium whitespace-nowrap ${
                                     isChildActive
-                                      ? "bg-primary-500/10 text-primary font-semibold"
-                                      : "text-white/80 hover:bg-white/5 hover:text-primary"
+                                      ? "bg-[#222222] text-white font-semibold"
+                                      : "text-zinc-400 hover:bg-[#222222] hover:text-white"
                                   }`}
                                 >
                                   {child.label}
@@ -138,7 +138,7 @@ export default function Header() {
                   key={item.label}
                   href={item.href}
                   className={`relative text-sm font-semibold transition-colors duration-200 py-1 group ${
-                    isActive ? "text-primary font-bold" : "text-white/80 hover:text-primary"
+                    isActive ? "text-white font-bold" : "text-white hover:text-zinc-300"
                   }`}
                 >
                   {item.label}
@@ -157,7 +157,7 @@ export default function Header() {
             {/* Get In Touch CTA */}
             <Link
               href="/contact"
-              className="btn-shimmer hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-white font-bold rounded-btn text-sm transition-all duration-200 min-h-[44px] bg-primary shadow-[0_4px_16px_rgba(0,170,223,0.35)] hover:shadow-[0_6px_20px_rgba(0,170,223,0.45)] hover:bg-primary-600"
+              className="btn-shimmer hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-[#0A0A0A] font-bold rounded-btn text-sm transition-all duration-200 min-h-[44px] bg-white shadow-md hover:bg-zinc-200"
             >
               Get In Touch
             </Link>
@@ -165,7 +165,7 @@ export default function Header() {
             {/* Mobile menu toggle */}
             <button
               onClick={toggleMobileMenu}
-              className="lg:hidden w-11 h-11 flex items-center justify-center text-white hover:text-primary transition-colors focus:outline-none"
+              className="lg:hidden w-11 h-11 flex items-center justify-center text-white hover:text-zinc-300 transition-colors focus:outline-none"
               aria-label="Open menu"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -182,7 +182,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-x-0 top-header-h bottom-0 z-30 bg-dark border-t border-white/5 lg:hidden overflow-y-auto"
+            className="fixed inset-x-0 top-header-h bottom-0 z-30 bg-dark border-t border-[#27272A] lg:hidden overflow-y-auto"
           >
             <div className="px-6 py-8 flex flex-col gap-6">
               {NAV_ITEMS.map((item) => {
@@ -192,11 +192,11 @@ export default function Header() {
 
                 if (hasChildren) {
                   return (
-                    <div key={item.label} className="border-b border-white/5 pb-4">
+                    <div key={item.label} className="border-b border-[#27272A] pb-4">
                       <button
                         onClick={() => toggleMobileExpanded(item.label)}
                         className={`flex items-center justify-between w-full text-base font-bold transition-colors ${
-                          isActive ? "text-primary" : "text-white"
+                          isActive ? "text-white" : "text-zinc-300"
                         }`}
                       >
                         {item.label}
@@ -222,7 +222,7 @@ export default function Header() {
                                   key={child.label}
                                   href={child.href}
                                   className={`block py-1 text-sm font-semibold transition-colors ${
-                                    isChildActive ? "text-primary" : "text-white/70 hover:text-primary"
+                                    isChildActive ? "text-white" : "text-zinc-400 hover:text-white"
                                   }`}
                                 >
                                   {child.label}
@@ -240,8 +240,8 @@ export default function Header() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className={`block text-base font-bold border-b border-white/5 pb-4 transition-colors ${
-                      isActive ? "text-primary" : "text-white hover:text-primary"
+                    className={`block text-base font-bold border-b border-[#27272A] pb-4 transition-colors ${
+                      isActive ? "text-white" : "text-zinc-300 hover:text-white"
                     }`}
                   >
                     {item.label}
@@ -253,7 +253,7 @@ export default function Header() {
               <div className="flex flex-col gap-4 pt-4 mt-auto">
                 <Link
                   href="/contact"
-                  className="btn-shimmer flex items-center justify-center w-full py-4 text-white font-extrabold rounded-btn text-base bg-primary shadow-[0_4px_16px_rgba(0,170,223,0.35)]"
+                  className="btn-shimmer flex items-center justify-center w-full py-4 text-[#0A0A0A] font-extrabold rounded-btn text-base bg-white shadow-md hover:bg-zinc-200"
                 >
                   Get In Touch
                 </Link>

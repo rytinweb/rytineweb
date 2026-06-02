@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function Services() {
   return (
-    <section className="relative overflow-hidden py-20 bg-dark-gray border-b border-white/5">
+    <section className="relative overflow-hidden py-20 bg-[#0A0A0A] border-b border-[#27272A]">
       {/* Background Image overlay */}
       <Image
         src="/blog/web-design-company.png"
@@ -19,11 +19,9 @@ export default function Services() {
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-dark-gray/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-[#0A0A0A]/85 pointer-events-none" />
 
-      {/* Glowing background highlights */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/10 filter blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-primary/5 filter blur-[130px] pointer-events-none" />
+      {/* Glowing background highlights removed */}
 
       {/* Core Container */}
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10">
@@ -76,24 +74,20 @@ export default function Services() {
                   href={item.href}
                   className="group glass card-dark-hover rounded-2xl p-8 block h-full flex flex-col justify-between"
                   style={{
-                    background: "rgba(255, 255, 255, 0.02)",
-                    borderColor: "rgba(255, 255, 255, 0.06)",
+                    background: "#171717",
+                    borderColor: "#27272A",
                   }}
                 >
                   <div>
                     {/* Icon container */}
                     <div 
-                      className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
-                      style={{
-                        background: "linear-gradient(135deg, rgba(0, 170, 223, 0.35) 0%, rgba(0, 170, 223, 0.15) 100%)",
-                        boxShadow: "0 4px 12px rgba(0, 170, 223, 0.1)",
-                      }}
+                      className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 bg-[#222222] border border-[#27272A]"
                     >
                       <LucideIcon className="w-7 h-7 stroke-[1.5]" />
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors duration-200">
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-zinc-300 transition-colors duration-200">
                       {item.title}
                     </h3>
 
@@ -104,7 +98,7 @@ export default function Services() {
                   </div>
 
                   {/* Learn More link */}
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3.5 transition-all duration-200">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:text-zinc-300 group-hover:gap-3.5 transition-all duration-200">
                     Learn More
                     <Icons.ArrowRight className="w-4 h-4" />
                   </span>

@@ -25,13 +25,13 @@ export default function WhoWeArePage() {
   return (
     <>
       <Header />
-      <main className="pt-header-h min-h-screen bg-white">
+      <main className="pt-header-h min-h-screen bg-[#0A0A0A]">
         
         {/* Banner */}
-        <section className="bg-dark text-white py-16 text-center relative overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-primary/20 filter blur-[90px] opacity-35" />
+        <section className="bg-[#111111] border-b border-[#27272A] text-white py-16 text-center relative overflow-hidden">
+          {/* Pulsing orb removed */}
           <div className="relative z-10">
-            <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
+            <span className="inline-block text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
               Agency profile
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">Who We Are</h1>
@@ -45,8 +45,8 @@ export default function WhoWeArePage() {
         <section className="py-16 md:py-24 max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
-            <div className="space-y-6 text-gray-600 leading-relaxed text-sm md:text-base font-light">
-              <h2 className="text-2xl md:text-3xl font-black text-gray-900 leading-tight">
+            <div className="space-y-6 text-zinc-400 leading-relaxed text-sm md:text-base font-light">
+              <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
                 Sleek Digital Frontends Engineered for High-Growth Brands
               </h2>
               <p>
@@ -65,13 +65,13 @@ export default function WhoWeArePage() {
               {values.map((v, i) => {
                 const Icon = v.icon;
                 return (
-                  <div key={v.title} className="p-5 border border-gray-150 rounded-2xl bg-[#f8f9fa] shadow-sm flex gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                  <div key={v.title} className="p-5 border border-[#27272A] rounded-2xl bg-[#171717] shadow-sm flex gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-zinc-800 flex items-center justify-center text-white shrink-0">
                       <Icon className="w-5 h-5 stroke-[1.5]" />
                     </div>
                     <div>
-                      <h3 className="font-extrabold text-gray-900 text-sm mb-1">{v.title}</h3>
-                      <p className="text-gray-500 text-xs leading-relaxed">{v.desc}</p>
+                      <h3 className="font-extrabold text-white text-sm mb-1">{v.title}</h3>
+                      <p className="text-zinc-400 text-xs leading-relaxed">{v.desc}</p>
                     </div>
                   </div>
                 );

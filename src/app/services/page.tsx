@@ -7,13 +7,13 @@ export default function ServicesPage() {
   return (
     <>
       <Header />
-      <main className="pt-header-h min-h-screen bg-white">
+      <main className="pt-header-h min-h-screen bg-[#0A0A0A]">
         
         {/* Banner */}
-        <section className="bg-dark text-white py-16 text-center relative overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-primary/20 filter blur-[90px] opacity-35" />
+        <section className="bg-[#111111] border-b border-[#27272A] text-white py-16 text-center relative overflow-hidden">
+          {/* Pulsing orb removed */}
           <div className="relative z-10">
-            <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
+            <span className="inline-block text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
               Our Capabilities
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">What We Do</h1>

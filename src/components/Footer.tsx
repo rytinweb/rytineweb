@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-dark text-white pt-section-y-sm pb-8 border-t border-white/5">
+    <footer className="bg-[#000000] text-white pt-section-y-sm pb-8 border-t border-[#27272A]">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Column 1: Brand Info */}
@@ -55,32 +55,32 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">What We Do</h3>
             <ul className="space-y-2 text-sm font-light">
               <li>
-                <Link href="/services/web-design-development" className="text-gray-300 hover:text-primary transition-colors py-1 block">
+                <Link href="/services/web-design-development" className="text-zinc-400 hover:text-white transition-colors py-1 block">
                   Web Design & Development
                 </Link>
               </li>
               <li>
-                <Link href="/services/graphic-design" className="text-gray-300 hover:text-primary transition-colors py-1 block">
+                <Link href="/services/graphic-design" className="text-zinc-400 hover:text-white transition-colors py-1 block">
                   Graphic Design
                 </Link>
               </li>
               <li>
-                <Link href="/services/seo" className="text-gray-300 hover:text-primary transition-colors py-1 block">
+                <Link href="/services/seo" className="text-zinc-400 hover:text-white transition-colors py-1 block">
                   SEO Positioning
                 </Link>
               </li>
               <li>
-                <Link href="/services/social-media-optimization" className="text-gray-300 hover:text-primary transition-colors py-1 block">
+                <Link href="/services/social-media-optimization" className="text-zinc-400 hover:text-white transition-colors py-1 block">
                   Social Optimization
                 </Link>
               </li>
               <li>
-                <Link href="/services/website-maintenance" className="text-gray-300 hover:text-primary transition-colors py-1 block">
+                <Link href="/services/website-maintenance" className="text-zinc-400 hover:text-white transition-colors py-1 block">
                   System Maintenance
                 </Link>
               </li>
               <li>
-                <Link href="/services/ai-consultation" className="text-gray-300 hover:text-primary transition-colors py-1 block">
+                <Link href="/services/ai-consultation" className="text-zinc-400 hover:text-white transition-colors py-1 block">
                   AI Consultation
                 </Link>
               </li>
@@ -92,16 +92,16 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">Contact & Info</h3>
             <ul className="space-y-4 text-sm font-light">
               <li>
-                <a href="mailto:hello@rytinweb.com" className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors">
-                  <Mail className="w-4 h-4 text-primary shrink-0" />
+                <a href="mailto:hello@rytinweb.com" className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
+                  <Mail className="w-4 h-4 text-white shrink-0" />
                   hello@rytinweb.com
                 </a>
               </li>
-              <li className="flex gap-2 items-start text-gray-300">
-                <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              <li className="flex gap-2 items-start text-zinc-400">
+                <MapPin className="w-4 h-4 text-white shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-white mb-0.5 text-xs">Presence</p>
-                  <p className="leading-relaxed text-gray-400">Bengaluru • Mumbai • Delhi</p>
+                  <p className="leading-relaxed text-zinc-500">Bengaluru • Mumbai • Delhi</p>
                 </div>
               </li>
             </ul>
@@ -117,8 +117,8 @@ export default function Footer() {
                     href={`/locations/${area.slug}`}
                     className={`block py-1 hover:text-white transition-colors ${
                       area.highlight 
-                        ? "text-primary hover:text-primary-400 font-bold flex items-center" 
-                        : "text-gray-300"
+                        ? "text-white hover:text-zinc-300 font-bold flex items-center" 
+                        : "text-zinc-400"
                     }`}
                   >
                     {area.highlight ? `${area.name} Hub ↗` : area.name}
@@ -130,14 +130,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom copyright bar */}
-        <div className="border-t border-white/10 pt-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+        <div className="border-t border-[#27272A] pt-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-zinc-500">
             <p>© {new Date().getFullYear()} RYTINWEB. All rights reserved.</p>
             <div className="flex gap-1 flex-wrap justify-center font-light">
-              <Link href="/privacy-policy" className="hover:text-white transition-colors duration-200 px-3 py-2 min-h-[40px] flex items-center">
+              <Link href="/privacy-policy" className="text-zinc-500 hover:text-white transition-colors duration-200 px-3 py-2 min-h-[40px] flex items-center">
                 Privacy Policy
               </Link>
-              <Link href="/terms-and-conditions" className="hover:text-white transition-colors duration-200 px-3 py-2 min-h-[40px] flex items-center">
+              <Link href="/terms-and-conditions" className="text-zinc-500 hover:text-white transition-colors duration-200 px-3 py-2 min-h-[40px] flex items-center">
                 Terms & Conditions
               </Link>
             </div>

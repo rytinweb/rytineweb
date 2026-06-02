@@ -13,13 +13,13 @@ export default function OurStoryPage() {
   return (
     <>
       <Header />
-      <main className="pt-header-h min-h-screen bg-white">
+      <main className="pt-header-h min-h-screen bg-[#0A0A0A]">
         
         {/* Banner */}
-        <section className="bg-dark text-white py-16 text-center relative overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-primary/20 filter blur-[90px] opacity-35" />
+        <section className="bg-[#111111] border-b border-[#27272A] text-white py-16 text-center relative overflow-hidden">
+          {/* Pulsing orb removed */}
           <div className="relative z-10">
-            <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
+            <span className="inline-block text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
               Our Journey
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">Our Story</h1>
@@ -34,8 +34,8 @@ export default function OurStoryPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
             {/* Left Story Text */}
-            <div className="lg:col-span-6 space-y-6 text-gray-600 leading-relaxed text-sm md:text-base font-light">
-              <h2 className="text-2xl md:text-3xl font-black text-gray-900 leading-tight">
+            <div className="lg:col-span-6 space-y-6 text-zinc-400 leading-relaxed text-sm md:text-base font-light">
+              <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
                 Bespoke engineering, designed to perform
               </h2>
               <p>
@@ -50,19 +50,19 @@ export default function OurStoryPage() {
             </div>
 
             {/* Right Timeline */}
-            <div className="lg:col-span-6 relative border-l border-gray-200 pl-6 space-y-8">
+            <div className="lg:col-span-6 relative border-l border-[#27272A] pl-6 space-y-8">
               {milestones.map((m, idx) => (
                 <div key={idx} className="relative">
                   {/* Circle dot marker */}
-                  <div className="absolute -left-[31px] top-1.5 w-4.5 h-4.5 rounded-full bg-primary border-4 border-white shadow-sm" />
+                  <div className="absolute -left-[31px] top-1.5 w-4.5 h-4.5 rounded-full bg-white border-4 border-[#0A0A0A] shadow-sm" />
                   
-                  <span className="text-xs font-bold text-primary font-mono block mb-1">
+                  <span className="text-xs font-bold text-white font-mono block mb-1">
                     {m.year}
                   </span>
-                  <h3 className="font-extrabold text-gray-900 text-base mb-1.5">
+                  <h3 className="font-extrabold text-white text-base mb-1.5">
                     {m.title}
                   </h3>
-                  <p className="text-gray-500 text-xs md:text-sm leading-relaxed font-light">
+                  <p className="text-zinc-400 text-xs md:text-sm leading-relaxed font-light">
                     {m.desc}
                   </p>
                 </div>

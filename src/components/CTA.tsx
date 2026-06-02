@@ -23,17 +23,10 @@ export default function CTA() {
         className="object-cover object-center pointer-events-none opacity-[0.18] select-none z-0"
       />
 
-      {/* Dark Gradient Overlay */}
+      {/* Dark Overlay */}
       <div 
-        className="absolute inset-0 pointer-events-none" 
-        style={{
-          background: "linear-gradient(135deg, rgba(1,12,30,0.85) 0%, rgba(5,33,64,0.80) 55%, rgba(1,13,26,0.85) 100%)",
-        }}
+        className="absolute inset-0 pointer-events-none bg-[#0A0A0A]/85" 
       />
-
-      {/* Pulsing Blur Orbs */}
-      <div className="absolute animate-orb pointer-events-none top-0 left-1/4 w-[384px] h-[384px] rounded-full bg-primary/20 filter blur-[120px] opacity-35" />
-      <div className="absolute animate-orb pointer-events-none bottom-0 right-1/4 w-[320px] h-[320px] rounded-full bg-primary/15 filter blur-[100px] opacity-25" style={{ animationDelay: "2s" }} />
 
       {/* Dot Grid */}
       <div 
@@ -50,7 +43,7 @@ export default function CTA() {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4"
+          className="inline-block text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4"
         >
           Get Started Today
         </motion.span>
@@ -87,14 +80,14 @@ export default function CTA() {
         >
           <Link
             href="/contact"
-            className="btn-shimmer group inline-flex items-center justify-center gap-2 px-10 py-5 text-white font-black rounded-btn text-lg transition-all duration-300 bg-primary shadow-[0_4px_32px_rgba(0,170,223,0.5)] hover:bg-primary-600"
+            className="btn-shimmer group inline-flex items-center justify-center gap-2 px-10 py-5 text-[#0A0A0A] font-black rounded-btn text-lg transition-all duration-300 bg-white hover:bg-zinc-200 shadow-md"
           >
             Get In Touch
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Link>
           <a
             href="mailto:hello@rytinweb.com"
-            className="inline-flex items-center justify-center gap-2 px-10 py-5 glass text-white font-bold rounded-btn text-lg hover:bg-white/15 transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 px-10 py-5 border border-white bg-transparent text-white font-bold rounded-btn text-lg hover:bg-white/10 transition-all duration-300"
           >
             Email Us
           </a>
@@ -110,7 +103,7 @@ export default function CTA() {
         >
           {checkmarks.map((text) => (
             <span key={text} className="flex items-center gap-2 font-medium">
-              <span className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs font-bold">
+              <span className="w-5 h-5 rounded-full bg-zinc-800 flex items-center justify-center text-white text-xs font-bold">
                 ✓
               </span>
               {text}

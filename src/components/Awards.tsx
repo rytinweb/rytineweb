@@ -13,10 +13,10 @@ export default function Awards() {
   ];
 
   return (
-    <section className="py-12 border-t border-gray-100 bg-white">
+    <section className="py-12 border-t border-[#27272A] bg-[#0A0A0A]">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
         {/* Subtitle */}
-        <p className="text-center text-primary text-xs font-bold tracking-[0.2em] uppercase mb-8">
+        <p className="text-center text-white text-xs font-bold tracking-[0.2em] uppercase mb-8">
           Awards & Recognition
         </p>
 

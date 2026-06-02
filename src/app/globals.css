@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 1, 12, 30; /* #010C1E */
-  --background-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255; /* #FFFFFF */
+  --background-rgb: 10, 10, 10;    /* #0A0A0A */
 }
 
 body {
@@ -49,11 +49,7 @@ body {
   }
 
   .gradient-text-animated {
-    background: linear-gradient(90deg, #00AADF, #33C2E8, #00AADF);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientShift 4s linear infinite;
+    color: #FFFFFF;
   }
 
   .card-dark-hover {
@@ -61,9 +57,9 @@ body {
   }
   
   .card-dark-hover:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(0, 170, 223, 0.45);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 170, 223, 0.15);
+    background: #222222;
+    border-color: #27272A;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     transform: translateY(-3px);
   }
 
@@ -73,8 +69,8 @@ body {
   
   .card-hover:hover {
     transform: translateY(-5px);
-    border-color: rgba(0, 170, 223, 0.25);
-    box-shadow: 0 16px 36px rgba(0, 170, 223, 0.12);
+    border-color: #27272A;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
   }
 
   .text-star {
@@ -140,12 +136,12 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #010C1E;
+  background: #0A0A0A;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0089bd;
+  background: #27272A;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00aadf;
+  background: #71717A;
 }

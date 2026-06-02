@@ -16,13 +16,13 @@ export default function PortfolioPage() {
   return (
     <>
       <Header />
-      <main className="pt-header-h min-h-screen bg-white">
+      <main className="pt-header-h min-h-screen bg-[#0A0A0A]">
         
         {/* Banner */}
-        <section className="bg-dark text-white py-16 text-center relative overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-primary/20 filter blur-[90px] opacity-35" />
+        <section className="bg-[#111111] border-b border-[#27272A] text-white py-16 text-center relative overflow-hidden">
+          {/* Pulsing orb removed */}
           <div className="relative z-10">
-            <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
+            <span className="inline-block text-white text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
               Our Works
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">Recent Projects</h1>
@@ -38,14 +38,14 @@ export default function PortfolioPage() {
             {projects.map((proj, idx) => (
               <div
                 key={proj.title}
-                className="group border border-gray-150 rounded-2xl overflow-hidden bg-[#f8f9fa] hover:bg-white shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="group border border-[#27272A] rounded-2xl overflow-hidden bg-[#171717] hover:bg-[#222222] shadow-[0_2px_10px_rgba(0,0,0,0.5)] hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Thumbnail Image placeholder */}
-                <div className="aspect-[16/10] bg-gradient-to-tr from-dark-blue to-[#0A2040] relative flex items-center justify-center p-6 overflow-hidden">
+                <div className="aspect-[16/10] bg-[#111111] relative flex items-center justify-center p-6 overflow-hidden">
                   <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:24px_24px]" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-primary/10 filter blur-[40px] group-hover:bg-primary/20 transition-colors" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-white/5 filter blur-[40px] group-hover:bg-white/10 transition-colors" />
                   
-                  <div className="relative z-10 flex flex-col items-center gap-3 text-white/40 group-hover:text-primary transition-colors">
+                  <div className="relative z-10 flex flex-col items-center gap-3 text-white/40 group-hover:text-white transition-colors">
                     <Monitor className="w-12 h-12 stroke-[1.2]" />
                     <span className="text-[10px] uppercase font-bold tracking-[0.2em]">RYTINWEB Project</span>
                   </div>
@@ -54,23 +54,23 @@ export default function PortfolioPage() {
                 {/* Project Details */}
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
-                    <span className="text-[10px] font-bold text-primary uppercase tracking-wider">
+                    <span className="text-[10px] font-bold text-white uppercase tracking-wider">
                       {proj.category}
                     </span>
-                    <span className="text-[10px] text-gray-400 font-mono">
+                    <span className="text-[10px] text-zinc-500 font-mono">
                       {proj.year}
                     </span>
                   </div>
 
-                  <h3 className="font-extrabold text-gray-900 text-lg mb-4 flex items-center justify-between group-hover:text-primary transition-colors">
+                  <h3 className="font-extrabold text-white text-lg mb-4 flex items-center justify-between group-hover:text-zinc-300 transition-colors">
                     {proj.title}
-                    <ExternalLink className="w-4 h-4 text-gray-400 shrink-0 group-hover:text-primary transition-transform group-hover:translate-x-0.5" />
+                    <ExternalLink className="w-4 h-4 text-zinc-500 shrink-0 group-hover:text-white transition-transform group-hover:translate-x-0.5" />
                   </h3>
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-1.5 font-light">
                     {proj.tags.map((tag) => (
-                      <span key={tag} className="px-2.5 py-1 bg-gray-100 rounded-md text-[10px] text-gray-600 font-semibold">
+                      <span key={tag} className="px-2.5 py-1 bg-zinc-800 rounded-md text-[10px] text-zinc-300 font-semibold">
                         {tag}
                       </span>
                     ))}

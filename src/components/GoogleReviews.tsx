@@ -11,14 +11,10 @@ export default function GoogleReviews() {
 
   // Colors for avatar backgrounds matching Google's style
   const avatarColors = [
-    "bg-blue-600",
-    "bg-red-500",
-    "bg-green-600",
-    "bg-yellow-500",
-    "bg-purple-600",
-    "bg-pink-600",
-    "bg-cyan-600",
-    "bg-orange-500",
+    "bg-zinc-700",
+    "bg-zinc-800",
+    "bg-zinc-600",
+    "bg-zinc-500",
   ];
 
   useEffect(() => {
@@ -59,7 +55,7 @@ export default function GoogleReviews() {
   const translateAmount = currentIndex * 310;
 
   return (
-    <section className="bg-[#f8f9fa] py-16 md:py-24 overflow-hidden border-y border-gray-100">
+    <section className="bg-[#111111] py-16 md:py-24 overflow-hidden border-y border-[#27272A]">
       <div className="max-w-[1400px] mx-auto px-6">
         
         {/* Header Summary */}
@@ -68,56 +64,56 @@ export default function GoogleReviews() {
           <div className="display-flex items-center gap-2 mb-4 flex">
             <svg className="w-7 h-7 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
               <path
-                fill="#4285F4"
+                fill="#FFFFFF"
                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
               />
               <path
-                fill="#34A853"
+                fill="#FFFFFF"
                 d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
               />
               <path
-                fill="#FBBC05"
+                fill="#FFFFFF"
                 d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
               />
               <path
-                fill="#EA4335"
+                fill="#FFFFFF"
                 d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
               />
             </svg>
-            <span className="text-xl font-bold text-gray-900 tracking-tight pl-1.5">
+            <span className="text-xl font-bold text-white tracking-tight pl-1.5">
               Google Reviews
             </span>
           </div>
 
           {/* Rating aggregate details */}
           <div className="flex items-center gap-3">
-            <span className="text-5xl font-extrabold text-gray-900 leading-none">4.9</span>
+            <span className="text-5xl font-extrabold text-white leading-none">4.9</span>
             <div className="text-left">
               <div className="flex gap-0.5 mb-1">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
+                  <Star key={i} className="w-5 h-5 text-zinc-400 fill-current" />
                 ))}
               </div>
-              <p className="text-xs text-gray-500 font-medium">Based on 180+ reviews</p>
+              <p className="text-xs text-zinc-500 font-medium">Based on 180+ reviews</p>
             </div>
           </div>
         </div>
 
         {/* Carousel Container */}
         <div 
-          className="bg-white rounded-2xl border border-gray-200/80 p-7 md:py-8 md:px-0 relative max-w-[1240px] mx-auto"
+          className="bg-[#171717] rounded-2xl border border-[#27272A] p-7 md:py-8 md:px-0 relative max-w-[1240px] mx-auto"
           style={{
-            boxShadow: "0 1px 6px rgba(60,64,67,0.08), 0 4px 20px rgba(60,64,67,0.04)",
+            boxShadow: "0 1px 6px rgba(0,0,0,0.2), 0 4px 20px rgba(0,0,0,0.4)",
           }}
         >
           {/* Navigation Prev Button */}
           <button
             onClick={slidePrev}
             disabled={currentIndex === 0}
-            className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center transition-all duration-200 focus:outline-none ${
+            className={`absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-[#171717] border border-[#27272A] shadow-sm flex items-center justify-center transition-all duration-200 focus:outline-none ${
               currentIndex === 0
                 ? "opacity-35 cursor-default"
-                : "opacity-100 hover:shadow-md hover:border-gray-300 text-gray-700 cursor-pointer"
+                : "opacity-100 hover:shadow-md hover:border-zinc-700 text-white cursor-pointer"
             }`}
             aria-label="Previous reviews"
           >
@@ -138,7 +134,7 @@ export default function GoogleReviews() {
                 return (
                   <div
                     key={rev.id}
-                    className="bg-white border border-gray-150 rounded-xl p-5 w-[290px] min-w-[290px] flex-shrink-0 flex flex-col gap-3 shadow-[0_1px_3px_rgba(60,64,67,0.06)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.04)] transition-shadow duration-200"
+                    className="bg-[#171717] border border-[#27272A] rounded-xl p-5 w-[290px] min-w-[290px] flex-shrink-0 flex flex-col gap-3 shadow-[0_1px_3px_rgba(0,0,0,0.3)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.5)] transition-shadow duration-200"
                   >
                     {/* User profile row */}
                     <div className="flex items-start justify-between">
@@ -147,10 +143,10 @@ export default function GoogleReviews() {
                           {rev.initials}
                         </div>
                         <div>
-                          <p className="font-bold text-xs text-gray-900 leading-tight">
+                          <p className="font-bold text-xs text-white leading-tight">
                             {rev.author}
                           </p>
-                          <p className="text-[10px] text-gray-500 mt-0.5 leading-none">
+                          <p className="text-[10px] text-zinc-500 mt-0.5 leading-none">
                             {rev.reviewsCount ? `${rev.reviewsCount} review${rev.reviewsCount > 1 ? 's' : ''}` : "1 review"}
                           </p>
                         </div>
@@ -159,19 +155,19 @@ export default function GoogleReviews() {
                       {/* Google G icon */}
                       <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
                         <path
-                          fill="#4285F4"
+                          fill="#FFFFFF"
                           d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                         />
                         <path
-                          fill="#34A853"
+                          fill="#FFFFFF"
                           d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
                         />
                         <path
-                          fill="#FBBC05"
+                          fill="#FFFFFF"
                           d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
                         />
                         <path
-                          fill="#EA4335"
+                          fill="#FFFFFF"
                           d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                         />
                       </svg>
@@ -181,16 +177,16 @@ export default function GoogleReviews() {
                     <div className="flex items-center gap-2">
                       <div className="flex gap-0.5">
                         {[...Array(rev.rating)].map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 text-yellow-500 fill-current" />
+                          <Star key={i} className="w-3.5 h-3.5 text-zinc-400 fill-current" />
                         ))}
                       </div>
-                      <span className="text-[10px] text-gray-500 font-medium">
+                      <span className="text-[10px] text-zinc-500 font-medium">
                         {rev.date}
                       </span>
                     </div>
 
                     {/* Review text content */}
-                    <p className="text-gray-700 text-[13px] leading-relaxed line-clamp-5 italic">
+                    <p className="text-zinc-300 text-[13px] leading-relaxed line-clamp-5 italic">
                       &quot;{rev.content}&quot;
                     </p>
                   </div>
@@ -203,10 +199,10 @@ export default function GoogleReviews() {
           <button
             onClick={slideNext}
             disabled={currentIndex >= maxIndex}
-            className={`absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center transition-all duration-200 focus:outline-none ${
+            className={`absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-[#171717] border border-[#27272A] shadow-sm flex items-center justify-center transition-all duration-200 focus:outline-none ${
               currentIndex >= maxIndex
                 ? "opacity-35 cursor-default"
-                : "opacity-100 hover:shadow-md hover:border-gray-300 text-gray-700 cursor-pointer"
+                : "opacity-100 hover:shadow-md hover:border-zinc-700 text-white cursor-pointer"
             }`}
             aria-label="Next reviews"
           >
@@ -222,7 +218,7 @@ export default function GoogleReviews() {
                   key={i}
                   onClick={() => jumpToPage(i)}
                   className={`height-2 rounded-full transition-all duration-300 focus:outline-none ${
-                    isActive ? "w-5 h-2 bg-primary" : "w-2 h-2 bg-gray-300 hover:bg-gray-400"
+                    isActive ? "w-5 h-2 bg-white" : "w-2 h-2 bg-zinc-700 hover:bg-zinc-600"
                   }`}
                   aria-label={`Go to page ${i + 1}`}
                 />
@@ -237,24 +233,24 @@ export default function GoogleReviews() {
             href="https://www.google.com/search?q=RYTINWEB+Reviews"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-gray-200 hover:border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-semibold text-sm transition-all duration-150 shadow-sm"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-[#27272A] hover:border-zinc-700 bg-transparent hover:bg-zinc-800 text-white font-semibold text-sm transition-all duration-150 shadow-sm"
           >
             {/* Small G icon */}
             <svg className="w-4 h-4" viewBox="0 0 24 24">
               <path
-                fill="#4285F4"
+                fill="#FFFFFF"
                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
               />
               <path
-                fill="#34A853"
+                fill="#FFFFFF"
                 d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
               />
               <path
-                fill="#FBBC05"
+                fill="#FFFFFF"
                 d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
               />
               <path
-                fill="#EA4335"
+                fill="#FFFFFF"
                 d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
               />
             </svg>
