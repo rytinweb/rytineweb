@@ -8,22 +8,21 @@ import Image from "next/image";
 
 export default function Services() {
   return (
-    <section className="relative overflow-hidden py-20 bg-dark-gray border-b border-white/5">
+    <section className="relative overflow-hidden py-20 bg-slate-50 border-b border-slate-200/80">
       {/* Background Image overlay */}
       <Image
         src="/blog/web-design-company.png"
         alt="Web Design Background Overlay"
         fill
         sizes="(max-width: 1024px) 100vw, 1280px"
-        className="object-cover object-center pointer-events-none opacity-[0.15] select-none z-0"
+        className="object-cover object-center pointer-events-none opacity-[0.03] select-none z-0"
       />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-dark-gray/80 pointer-events-none" />
+      {/* Light overlay */}
+      <div className="absolute inset-0 bg-slate-50/75 pointer-events-none" />
 
-      {/* Glowing background highlights */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/10 filter blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-primary/5 filter blur-[130px] pointer-events-none" />
+      {/* Subtle background highlights */}
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/5 filter blur-[150px] pointer-events-none" />
 
       {/* Core Container */}
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10">
@@ -43,7 +42,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4"
           >
             Modern Product Capabilities
           </motion.h2>
@@ -52,7 +51,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.2 }}
-            className="text-base md:text-lg text-white/50 max-w-xl mx-auto font-light"
+            className="text-base md:text-lg text-slate-500 max-w-xl mx-auto font-light"
           >
             We engineer clean codebases, scalable design systems, and conversion-optimized frontends.
           </motion.p>
@@ -74,31 +73,23 @@ export default function Services() {
               >
                 <Link
                   href={item.href}
-                  className="group glass card-dark-hover rounded-2xl p-8 block h-full flex flex-col justify-between"
-                  style={{
-                    background: "rgba(255, 255, 255, 0.02)",
-                    borderColor: "rgba(255, 255, 255, 0.06)",
-                  }}
+                  className="group bg-white border border-slate-200 card-hover rounded-2xl p-8 block h-full flex flex-col justify-between shadow-sm"
                 >
                   <div>
                     {/* Icon container */}
                     <div 
-                      className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
-                      style={{
-                        background: "linear-gradient(135deg, rgba(0, 170, 223, 0.35) 0%, rgba(0, 170, 223, 0.15) 100%)",
-                        boxShadow: "0 4px 12px rgba(0, 170, 223, 0.1)",
-                      }}
+                      className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-primary bg-primary/10 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
                     >
                       <LucideIcon className="w-7 h-7 stroke-[1.5]" />
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors duration-200">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-200">
                       {item.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-white/60 text-sm leading-relaxed mb-8">
+                    <p className="text-slate-500 text-sm leading-relaxed mb-8">
                       {item.description}
                     </p>
                   </div>

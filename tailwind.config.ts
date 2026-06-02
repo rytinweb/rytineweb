@@ -10,27 +10,27 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#00AADF",
-          50: "#f0fbff",
-          100: "#e0f6fe",
-          200: "#baeafc",
-          300: "#7cd7fa",
-          400: "#33c2f7",
-          500: "#00aadf",
-          600: "#0089bd",
-          700: "#006d99",
-          800: "#035d80",
-          900: "#084d6b",
+          DEFAULT: "#0EA5E9",
+          50: "#f0f9ff",
+          100: "#e0f2fe",
+          200: "#bae6fd",
+          300: "#7dd3fc",
+          400: "#38bdf8",
+          500: "#0ea5e9",
+          600: "#0284c7",
+          700: "#0369a1",
+          800: "#075985",
+          900: "#0c4a6e",
         },
         dark: {
-          DEFAULT: "#010C1E",
-          light: "#4b5563", // gray-600 equivalent for text
-          blue: "#041830",
-          gray: "#08121F",
+          DEFAULT: "#111827",
+          light: "#64748b", // slate-500 equivalent for text
+          blue: "#111827",  // map to slate-900
+          gray: "#f8fafc",  // map to slate-50
         },
         accent: {
-          DEFAULT: "#00AADF",
-          light: "#33C2E8",
+          DEFAULT: "#0EA5E9",
+          light: "#38BDF8",
         },
       },
       borderRadius: {

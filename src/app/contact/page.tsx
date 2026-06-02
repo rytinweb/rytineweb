@@ -67,17 +67,16 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="pt-header-h min-h-screen bg-[#f8f9fa]">
+      <main className="pt-header-h min-h-screen bg-white">
         
         {/* Banner */}
-        <section className="bg-dark text-white py-16 text-center relative overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-primary/20 filter blur-[90px] opacity-35" />
+        <section className="bg-slate-50 border-b border-slate-200/80 text-gray-900 py-16 text-center relative overflow-hidden">
           <div className="relative z-10">
             <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
               Get In Touch
             </span>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">Contact Our Team</h1>
-            <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed font-light">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-gray-900">Contact Our Team</h1>
+            <p className="text-slate-500 text-sm md:text-base max-w-xl mx-auto leading-relaxed font-light">
               Have questions about pricing, timelines, or frontend architecture? Send us a message and we will respond shortly.
             </p>
           </div>
@@ -97,7 +96,7 @@ export default function ContactPage() {
               </div>
 
               <div className="space-y-6">
-                <div className="flex gap-4 items-start p-5 rounded-2xl bg-white border border-gray-150 shadow-sm">
+                <div className="flex gap-4 items-start p-5 rounded-2xl bg-slate-50/50 border border-slate-200 shadow-sm">
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
                     <MapPin className="w-5 h-5 stroke-[1.5]" />
                   </div>
@@ -109,7 +108,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex gap-4 items-start p-5 rounded-2xl bg-white border border-gray-150 shadow-sm">
+                <div className="flex gap-4 items-start p-5 rounded-2xl bg-slate-50/50 border border-slate-200 shadow-sm">
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
                     <MapPin className="w-5 h-5 stroke-[1.5]" />
                   </div>
@@ -132,7 +131,7 @@ export default function ContactPage() {
 
             {/* Right: Contact Form */}
             <div className="lg:col-span-7">
-              <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-150 shadow-sm relative">
+              <div className="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-md relative">
                 <AnimatePresence mode="wait">
                   {!isSuccess ? (
                     <motion.form
@@ -154,57 +153,57 @@ export default function ContactPage() {
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold uppercase text-gray-500 mb-1.5 pl-0.5">Name *</label>
+                          <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5 pl-0.5">Name *</label>
                           <input
                             type="text"
                             name="name"
                             placeholder="Your Name"
                             value={formData.name}
                             onChange={handleInputChange}
-                            className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary outline-none transition-all ${
-                              errors.name ? "border-red-500 focus:ring-red-400" : "border-gray-200"
+                            className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-white outline-none transition-all ${
+                              errors.name ? "border-red-500 focus:ring-red-400" : "border-slate-200"
                             }`}
                           />
                           {errors.name && <span className="text-[10px] text-red-500 mt-1 block pl-1">{errors.name}</span>}
                         </div>
                         <div>
-                          <label className="block text-xs font-bold uppercase text-gray-500 mb-1.5 pl-0.5">Phone (Optional)</label>
+                          <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5 pl-0.5">Phone (Optional)</label>
                           <input
                             type="tel"
                             name="phone"
                             placeholder="Your Phone Number"
                             value={formData.phone}
                             onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-xl text-sm border border-gray-200 focus:ring-2 focus:ring-primary outline-none transition-all"
+                            className="w-full px-4 py-3 rounded-xl text-sm border border-slate-200 focus:ring-2 focus:ring-primary bg-white outline-none transition-all"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase text-gray-500 mb-1.5 pl-0.5">Email Address *</label>
+                        <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5 pl-0.5">Email Address *</label>
                         <input
                           type="email"
                           name="email"
                           placeholder="your.name@example.com"
                           value={formData.email}
                           onChange={handleInputChange}
-                          className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary outline-none transition-all ${
-                            errors.email ? "border-red-500 focus:ring-red-400" : "border-gray-200"
+                          className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-white outline-none transition-all ${
+                            errors.email ? "border-red-500 focus:ring-red-400" : "border-slate-200"
                           }`}
                         />
                         {errors.email && <span className="text-[10px] text-red-500 mt-1 block pl-1">{errors.email}</span>}
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase text-gray-500 mb-1.5 pl-0.5">Your Message *</label>
+                        <label className="block text-xs font-bold uppercase text-slate-500 mb-1.5 pl-0.5">Your Message *</label>
                         <textarea
                           name="message"
                           rows={5}
                           placeholder="How can we help you? Please describe your project."
                           value={formData.message}
                           onChange={handleInputChange}
-                          className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary outline-none transition-all resize-none ${
-                            errors.message ? "border-red-500 focus:ring-red-400" : "border-gray-200"
+                          className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-white outline-none transition-all resize-none ${
+                            errors.message ? "border-red-500 focus:ring-red-400" : "border-slate-200"
                           }`}
                         />
                         {errors.message && <span className="text-[10px] text-red-500 mt-1 block pl-1">{errors.message}</span>}
@@ -213,7 +212,7 @@ export default function ContactPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="btn-shimmer w-full py-4 text-white font-extrabold rounded-xl text-sm bg-primary shadow-md hover:bg-primary-600 disabled:opacity-70 disabled:cursor-not-allowed transition-all"
+                        className="btn-shimmer w-full py-4 text-white font-extrabold rounded-xl text-sm bg-primary hover:bg-primary-600 shadow-sm disabled:opacity-70 disabled:cursor-not-allowed transition-all"
                       >
                         {isSubmitting ? "Sending message..." : "Send Message"}
                       </button>
@@ -232,7 +231,7 @@ export default function ContactPage() {
                       </p>
                       <button
                         onClick={() => setIsSuccess(false)}
-                        className="px-6 py-2 rounded-lg border border-primary text-primary hover:bg-primary/5 transition-colors text-xs font-semibold"
+                        className="px-6 py-2 rounded-lg border border-slate-200 text-gray-900 hover:bg-slate-50 transition-colors text-xs font-semibold"
                       >
                         Send Another Message
                       </button>

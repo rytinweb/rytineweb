@@ -24,10 +24,7 @@ export default function LocationDetailPage({ params }: Props) {
       <Header />
       <main className="pt-header-h min-h-screen bg-white">
         {/* Banner Section */}
-        <section className="bg-dark text-white py-16 md:py-24 relative overflow-hidden">
-          {/* Subtle orb background */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-primary/20 filter blur-[90px] opacity-35" />
-          
+        <section className="bg-slate-50 border-b border-slate-200/80 text-gray-900 py-16 md:py-24 relative overflow-hidden">
           <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10 text-center">
             {/* Category */}
             <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
@@ -35,12 +32,12 @@ export default function LocationDetailPage({ params }: Props) {
             </span>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">
               Web Design {area.name}
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base md:text-lg text-white/75 max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed font-light">
               We build premium, custom, high-converting React architectures for brands in {area.name}.
             </p>
           </div>
@@ -71,12 +68,12 @@ export default function LocationDetailPage({ params }: Props) {
                 
                 {/* Visual grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6">
-                  <div className="p-5 border border-gray-150 rounded-xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                  <div className="p-5 border border-slate-200 rounded-xl bg-white shadow-sm">
                     <Zap className="w-6 h-6 text-primary mb-3" />
                     <h4 className="font-extrabold text-gray-900 text-sm mb-2">Ultra-Fast Load Speeds</h4>
                     <p className="text-xs text-gray-500 leading-relaxed">Next.js static site generation ensures that visitors in {area.name} get page loads under 1 second, lowering bounce rates.</p>
                   </div>
-                  <div className="p-5 border border-gray-150 rounded-xl bg-white shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                  <div className="p-5 border border-slate-200 rounded-xl bg-white shadow-sm">
                     <ShieldCheck className="w-6 h-6 text-primary mb-3" />
                     <h4 className="font-extrabold text-gray-900 text-sm mb-2">Accredited Reliability</h4>
                     <p className="text-xs text-gray-500 leading-relaxed">High client satisfaction rate based on design delivery, frontend speeds, and ranking performance.</p>
@@ -88,7 +85,7 @@ export default function LocationDetailPage({ params }: Props) {
             {/* Right Sidebar */}
             <div className="lg:col-span-4 space-y-6">
               {/* Promo box */}
-              <div className="p-6 rounded-2xl border border-gray-100 bg-[#f8f9fa] shadow-sm flex flex-col justify-between">
+              <div className="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 shadow-sm flex flex-col justify-between">
                 <h3 className="font-extrabold text-gray-900 text-lg mb-3">
                   Free {area.name} Consultation
                 </h3>
@@ -104,7 +101,7 @@ export default function LocationDetailPage({ params }: Props) {
               </div>
 
               {/* Sidebar list */}
-              <div className="p-6 rounded-2xl border border-gray-100 bg-white max-h-[300px] overflow-y-auto">
+              <div className="p-6 rounded-2xl border border-slate-200 bg-white max-h-[300px] overflow-y-auto shadow-sm">
                 <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider mb-4">
                   Other Service Hubs
                 </h3>
