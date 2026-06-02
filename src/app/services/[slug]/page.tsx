@@ -43,7 +43,10 @@ export default function ServiceDetailPage({ params }: Props) {
       <Header />
       <main className="pt-header-h min-h-screen bg-white">
         {/* Banner Section */}
-        <section className="bg-slate-50 border-b border-slate-200/80 text-gray-900 py-16 md:py-24 relative overflow-hidden">
+        <section className="bg-dark text-white py-16 md:py-24 relative overflow-hidden">
+          {/* Subtle orb background */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-primary/20 filter blur-[90px] opacity-35" />
+          
           <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10 text-center">
             {/* Category */}
             <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
@@ -51,12 +54,12 @@ export default function ServiceDetailPage({ params }: Props) {
             </span>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
               {title}
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-white/75 max-w-2xl mx-auto leading-relaxed">
               {description}
             </p>
           </div>
@@ -110,7 +113,7 @@ export default function ServiceDetailPage({ params }: Props) {
             {/* Right Sidebar */}
             <div className="lg:col-span-4 space-y-6">
               {/* Promo box */}
-              <div className="p-6 rounded-2xl border border-slate-200 bg-slate-50/50 shadow-sm flex flex-col justify-between">
+              <div className="p-6 rounded-2xl border border-gray-100 bg-[#f8f9fa] shadow-sm flex flex-col justify-between">
                 <h3 className="font-extrabold text-gray-900 text-lg mb-3">
                   Have a project in mind?
                 </h3>
@@ -126,7 +129,7 @@ export default function ServiceDetailPage({ params }: Props) {
               </div>
 
               {/* Sidebar list */}
-              <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div className="p-6 rounded-2xl border border-gray-100 bg-white">
                 <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider mb-4">
                   Our Other Services
                 </h3>
