@@ -54,7 +54,7 @@ export const NAV_ITEMS: NavItem[] = [
       { label: "SEO Positioning", href: "/services/seo" },
       { label: "Social Optimization", href: "/services/social-media-optimization" },
       { label: "System Maintenance", href: "/services/website-maintenance" },
-      { label: "AI Consultation", href: "/services/ai-consultation" },
+      { label: "Custom Web Development", href: "/services/custom-web-development" },
     ],
   },
   { label: "Portfolio", href: "/portfolio" },
@@ -93,10 +93,10 @@ export const SERVICE_ITEMS: ServiceItem[] = [
     iconName: "ShieldCheck",
   },
   {
-    title: "AI Consultation",
-    description: "Integrate modern artificial intelligence tools to optimize developer velocity and workflows.",
-    href: "/services/ai-consultation",
-    iconName: "Sparkles",
+    title: "Custom Web Development",
+    description: "End-to-end bespoke web engineering solutions tailored to solve complex business challenges.",
+    href: "/services/custom-web-development",
+    iconName: "Code",
   },
 ];
 
@@ -178,15 +178,4 @@ export const REVIEWS: Review[] = [
   },
 ];
 
-export const SERVICE_AREAS = [
-  { name: "Bengaluru", slug: "bengaluru", highlight: true },
-  { name: "Mumbai", slug: "mumbai" },
-  { name: "Delhi", slug: "delhi" },
-  { name: "Hyderabad", slug: "hyderabad" },
-  { name: "Pune", slug: "pune" },
-  { name: "Chennai", slug: "chennai" },
-  { name: "Noida", slug: "noida" },
-  { name: "Gurgaon", slug: "gurgaon" },
-  { name: "Kolkata", slug: "kolkata" },
-  { name: "Ahmedabad", slug: "ahmedabad" },
-];
+

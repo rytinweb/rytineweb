@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
-import { SERVICE_AREAS } from "@/constants/data";
 import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="bg-[#000000] text-white pt-section-y-sm pb-8 border-t border-[#27272A]">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {/* Column 1: Brand Info */}
           <div>
             <div className="mb-4">
@@ -80,8 +79,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services/ai-consultation" className="text-zinc-400 hover:text-white transition-colors py-1 block">
-                  AI Consultation
+                <Link href="/services/custom-web-development" className="text-zinc-400 hover:text-white transition-colors py-1 block">
+                  Custom Web Development
                 </Link>
               </li>
             </ul>
@@ -107,26 +106,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Hub Locations */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Locations</h3>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-0.5 text-sm font-light">
-              {SERVICE_AREAS.map((area) => (
-                <li key={area.slug} className={area.highlight ? "col-span-2 mb-1" : ""}>
-                  <Link
-                    href={`/locations/${area.slug}`}
-                    className={`block py-1 hover:text-white transition-colors ${
-                      area.highlight 
-                        ? "text-white hover:text-zinc-300 font-bold flex items-center" 
-                        : "text-zinc-400"
-                    }`}
-                  >
-                    {area.highlight ? `${area.name} Hub ↗` : area.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+
         </div>
 
         {/* Bottom copyright bar */}

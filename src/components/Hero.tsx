@@ -26,7 +26,7 @@ export default function Hero() {
     "Graphic Design",
     "Social Optimization",
     "System Maintenance",
-    "AI Consultation",
+    "Custom Web Development",
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

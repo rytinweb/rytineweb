@@ -4,7 +4,6 @@ import GoogleReviews from "@/components/GoogleReviews";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import WhyUs from "@/components/WhyUs";
-import Awards from "@/components/Awards";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -18,7 +17,6 @@ export default function Home() {
         <Services />
         <Process />
         <WhyUs />
-        <Awards />
         <CTA />
       </main>
       <Footer />
