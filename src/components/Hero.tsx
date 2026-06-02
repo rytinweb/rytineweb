@@ -227,7 +227,7 @@ export default function Hero() {
                           <input
                             type="text"
                             name="firstName"
-                            placeholder="First Name *"
+                            placeholder="Rahul"
                             value={formData.firstName}
                             onChange={handleInputChange}
                             className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-[#111111]/50 border ${
@@ -242,7 +242,7 @@ export default function Hero() {
                           <input
                             type="text"
                             name="lastName"
-                            placeholder="Last Name *"
+                            placeholder="Sharma"
                             value={formData.lastName}
                             onChange={handleInputChange}
                             className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-[#111111]/50 border ${
@@ -259,7 +259,7 @@ export default function Hero() {
                         <input
                           type="email"
                           name="email"
-                          placeholder="Email Address *"
+                          placeholder="rahul@example.com"
                           value={formData.email}
                           onChange={handleInputChange}
                           className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border ${
@@ -275,7 +275,7 @@ export default function Hero() {
                         <input
                           type="tel"
                           name="phone"
-                          placeholder="Phone Number (Optional)"
+                          placeholder="+91 98765 43210"
                           value={formData.phone}
                           onChange={handleInputChange}
                           className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border border-[#27272A]"

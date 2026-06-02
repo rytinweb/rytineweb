@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 
 export default function Footer() {
@@ -91,9 +91,15 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">Contact & Info</h3>
             <ul className="space-y-4 text-sm font-light">
               <li>
-                <a href="mailto:hello@rytinweb.com" className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
+                <a href="mailto:info.rytinweb@gmail.com" className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
                   <Mail className="w-4 h-4 text-white shrink-0" />
-                  hello@rytinweb.com
+                  info.rytinweb@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+919891321840" className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
+                  <Phone className="w-4 h-4 text-white shrink-0" />
+                  +91 9891321840
                 </a>
               </li>
               <li className="flex gap-2 items-start text-zinc-400">

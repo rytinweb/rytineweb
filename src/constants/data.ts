@@ -1,3 +1,5 @@
+// NOTE: This is demo content and should be replaced with actual client information before production deployment.
+
 export interface NavItem {
   label: string;
   href: string;
@@ -139,42 +141,57 @@ export const VALUE_PROPS: ValueProp[] = [
   },
 ];
 
+// NOTE: The testimonials below are sample demo content and should be replaced with actual client reviews before production.
 export const REVIEWS: Review[] = [
   {
     id: "rev1",
     author: "Rahul Sharma",
     initials: "RS",
     rating: 5,
-    date: "6 days ago",
-    content: "RYTINWEB transformed our digital presence completely. The speed of delivery and the premium UI feel exceeded all expectations.",
+    date: "3 days ago",
+    content: "The gym landing page built by RYTINWEB has completely modernized our member onboarding. Extremely clean, fast, and professional.",
+    location: "Gym Owner",
     reviewsCount: 1,
   },
   {
     id: "rev2",
-    author: "Priya Patel",
-    initials: "PP",
+    author: "Priya Verma",
+    initials: "PV",
     rating: 5,
     date: "1 week ago",
-    content: "The team at RYTINWEB is incredibly professional. They delivered a highly responsive, clean Next.js architecture on budget and schedule.",
+    content: "A beautiful minimal website that represents our organic café perfectly. The team is highly skilled in frontend engineering.",
+    location: "Cafe Founder",
     reviewsCount: 1,
   },
   {
     id: "rev3",
-    author: "Amit Mehta",
-    initials: "AM",
+    author: "Aman Gupta",
+    initials: "AG",
     rating: 5,
-    date: "4 weeks ago",
-    content: "From pixel-perfect designs to lightning-fast performance, RYTINWEB is the best agency we have ever partnered with.",
-    reviewsCount: 3,
+    date: "2 weeks ago",
+    content: "Highly conversion-focused real estate landing pages. Our inquiries doubled within weeks of launch. Excellent execution.",
+    location: "Real Estate Director",
+    reviewsCount: 1,
   },
   {
     id: "rev4",
-    author: "Ananya Iyer",
-    initials: "AI",
+    author: "Neha Singh",
+    initials: "NS",
+    rating: 5,
+    date: "1 month ago",
+    content: "Proactive maintenance, fast loading speeds, and great attention to detail for our medical clinic site.",
+    location: "Medical Clinic Founder",
+    reviewsCount: 2,
+  },
+  {
+    id: "rev5",
+    author: "Arjun Mehta",
+    initials: "AM",
     rating: 5,
     date: "2 months ago",
-    content: "Outstanding communication and top-tier technical design. RYTINWEB is our go-to partner for front-end engineering and design systems.",
-    reviewsCount: 2,
+    content: "Outstanding Next.js portal built for our coaching institute. Student enrollment queries have been seamless since launch.",
+    location: "Coaching Institute Director",
+    reviewsCount: 3,
   },
 ];
 

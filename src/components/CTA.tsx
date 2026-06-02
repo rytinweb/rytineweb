@@ -86,7 +86,7 @@ export default function CTA() {
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Link>
           <a
-            href="mailto:hello@rytinweb.com"
+            href="mailto:info.rytinweb@gmail.com"
             className="inline-flex items-center justify-center gap-2 px-10 py-5 border border-white bg-transparent text-white font-bold rounded-btn text-lg hover:bg-white/10 transition-all duration-300"
           >
             Email Us

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Mail, MapPin, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, CheckCircle2, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function ContactPage() {
@@ -11,6 +11,7 @@ export default function ContactPage() {
     name: "",
     email: "",
     phone: "",
+    businessName: "",
     message: "",
     _hp: "",
   });
@@ -59,6 +60,7 @@ export default function ContactPage() {
       name: "",
       email: "",
       phone: "",
+      businessName: "",
       message: "",
       _hp: "",
     });
@@ -123,9 +125,13 @@ export default function ContactPage() {
               </div>
 
               <div className="pt-6 border-t border-[#27272A] space-y-4 text-sm text-zinc-300">
-                <a href="mailto:hello@rytinweb.com" className="flex items-center gap-3 hover:text-white transition-colors">
+                <a href="mailto:info.rytinweb@gmail.com" className="flex items-center gap-3 hover:text-white transition-colors">
                   <Mail className="w-5 h-5 text-white" />
-                  hello@rytinweb.com
+                  info.rytinweb@gmail.com
+                </a>
+                <a href="tel:+919891321840" className="flex items-center gap-3 hover:text-white transition-colors">
+                  <Phone className="w-5 h-5 text-white" />
+                  +91 9891321840
                 </a>
               </div>
             </div>
@@ -158,7 +164,7 @@ export default function ContactPage() {
                           <input
                             type="text"
                             name="name"
-                            placeholder="Your Name"
+                            placeholder="Rahul Sharma"
                             value={formData.name}
                             onChange={handleInputChange}
                             className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-[#111111]/50 text-white outline-none transition-all ${
@@ -168,12 +174,40 @@ export default function ContactPage() {
                           {errors.name && <span className="text-[10px] text-red-500 mt-1 block pl-1">{errors.name}</span>}
                         </div>
                         <div>
+                          <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Email Address *</label>
+                          <input
+                            type="email"
+                            name="email"
+                            placeholder="rahul@example.com"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-[#111111]/50 text-white outline-none transition-all ${
+                              errors.email ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
+                            }`}
+                          />
+                          {errors.email && <span className="text-[10px] text-red-500 mt-1 block pl-1">{errors.email}</span>}
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
                           <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Phone (Optional)</label>
                           <input
                             type="tel"
                             name="phone"
-                            placeholder="Your Phone Number"
+                            placeholder="+91 98765 43210"
                             value={formData.phone}
+                            onChange={handleInputChange}
+                            className="w-full px-4 py-3 rounded-xl text-sm border border-[#27272A] bg-[#111111]/50 text-white focus:ring-2 focus:ring-primary outline-none transition-all"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Business Name</label>
+                          <input
+                            type="text"
+                            name="businessName"
+                            placeholder="Your Business Name"
+                            value={formData.businessName}
                             onChange={handleInputChange}
                             className="w-full px-4 py-3 rounded-xl text-sm border border-[#27272A] bg-[#111111]/50 text-white focus:ring-2 focus:ring-primary outline-none transition-all"
                           />
@@ -181,26 +215,11 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Email Address *</label>
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="your.name@example.com"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-[#111111]/50 text-white outline-none transition-all ${
-                            errors.email ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
-                          }`}
-                        />
-                        {errors.email && <span className="text-[10px] text-red-500 mt-1 block pl-1">{errors.email}</span>}
-                      </div>
-
-                      <div>
                         <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Your Message *</label>
                         <textarea
                           name="message"
                           rows={5}
-                          placeholder="How can we help you? Please describe your project."
+                          placeholder="Tell us about your project or business requirements..."
                           value={formData.message}
                           onChange={handleInputChange}
                           className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-[#111111]/50 text-white outline-none transition-all resize-none ${

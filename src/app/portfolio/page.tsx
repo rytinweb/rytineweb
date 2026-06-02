@@ -1,3 +1,5 @@
+// NOTE: This is demo content and should be replaced with actual client information before production deployment.
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
@@ -5,12 +7,12 @@ import { ExternalLink, Monitor } from "lucide-react";
 
 export default function PortfolioPage() {
   const projects = [
-    { title: "Apex SaaS Platform", category: "Productivity & SaaS", tags: ["Next.js App", "UI/UX Design"], year: "2025" },
-    { title: "Zenith Wellness", category: "Healthtech & Mobile", tags: ["Tailwind CSS", "App Design"], year: "2025" },
-    { title: "Lumina Headless Commerce", category: "E-Commerce & Retail", tags: ["Shopify Engine", "SEO Positioning"], year: "2024" },
-    { title: "Velo Digital Exchange", category: "Fintech & Trading", tags: ["Web Application", "Custom APIs"], year: "2024" },
-    { title: "Nova B2B Architecture", category: "B2B & Enterprise", tags: ["Corporate Site", "SEO Positioning"], year: "2024" },
-    { title: "Sphere Consulting", category: "Tech & Corporate", tags: ["Branding", "UI/UX Design"], year: "2023" },
+    { title: "Modern Restaurant Website", category: "Restaurant & Cafe", tags: ["Next.js App", "UI/UX Design"], year: "2025" },
+    { title: "Fitness Gym Website", category: "Gym & Fitness", tags: ["Tailwind CSS", "App Design"], year: "2025" },
+    { title: "Pet Shop Website", category: "Local Store", tags: ["Responsive Web", "SEO Ready"], year: "2025" },
+    { title: "Real Estate Landing Page", category: "Real Estate Agency", tags: ["Lead Capture", "SEO Positioning"], year: "2024" },
+    { title: "Coaching Institute Website", category: "Coaching & Education", tags: ["Student Portal", "Custom APIs"], year: "2024" },
+    { title: "E-commerce Store", category: "Retail & Shop", tags: ["Shopify Integration", "SEO Positioning"], year: "2024" },
   ];
 
   return (
