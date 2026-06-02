@@ -16,7 +16,7 @@ export default function CTA() {
     <section className="relative py-20 overflow-hidden bg-dark">
       {/* Background Image Overlay */}
       <Image
-        src="/blog/seo-services-london-ontario.png"
+        src="/blog/seo-services.png"
         alt="SEO Growth Graph Overlay"
         fill
         sizes="(max-width: 1024px) 100vw, 1280px"
