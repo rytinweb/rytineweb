@@ -12,8 +12,11 @@ export const metadata: Metadata = {
   title: "RYTINWEB | Premium Web Design & Development Agency",
   description: "Bespoke digital design, custom front-end development, and high-performance SEO systems. Engineered for speed and conversion.",
   icons: {
-    icon: "/logos/favicon.png",
-    shortcut: "/logos/favicon.png",
+    icon: [
+      { url: "/logos/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/logos/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
     apple: "/logos/apple-touch-icon.png",
   },
 };

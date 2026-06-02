@@ -84,10 +84,10 @@ export default function Preloader() {
                 style={{ animation: "pulse 3s ease-in-out infinite" }}
               >
                 <Image 
-                  src="/logos/logo.png" 
-                  alt="RYTINWEB Logo" 
-                  width={50}
-                  height={50}
+                  src="/logos/icon.png" 
+                  alt="RYTINWEB Icon" 
+                  width={56}
+                  height={56}
                   priority
                   className="object-contain filter drop-shadow-[0_0_8px_rgba(0,170,223,0.6)]" 
                 />

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
 import { SERVICE_AREAS } from "@/constants/data";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -11,7 +12,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Column 1: Brand Info */}
           <div>
-            <h3 className="text-lg font-bold mb-4">RYTINWEB</h3>
+            <div className="mb-4">
+              <Image
+                src="/logos/logo.png"
+                alt="RYTINWEB Logo"
+                width={160}
+                height={24}
+                className="h-7 w-auto object-contain brightness-0 invert opacity-90"
+              />
+            </div>
             <p className="text-gray-300 text-sm mb-4 leading-relaxed font-light">
               Engineering premium web applications, bespoke design systems, and high-performance digital frontends.
             </p>
