@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, CheckCircle2, Star } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Star } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -18,7 +18,6 @@ export default function Hero() {
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
 
   const servicesList = [
     "Web Design & Development",
@@ -64,19 +63,24 @@ export default function Hero() {
 
     setIsSubmitting(true);
 
-    // Simulate API request delay
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Brief loading state
+    await new Promise((resolve) => setTimeout(resolve, 600));
+
+    const name = `${formData.firstName} ${formData.lastName}`.trim();
+    const email = formData.email;
+    const phone = formData.phone || "Not provided";
+    const company = "Not provided";
+    const service = formData.service;
+    const message = "Inquiry submitted via Hero quick form.";
+
+    const text = `New Website Inquiry\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company}\n\nInterested In:\n${service}\n\nProject Details:\n${message}\n\nSent from RYTINWEB Website`;
+    const encodedMessage = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/919891321840?text=${encodedMessage}`;
 
     setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      service: "",
-      _hp: "",
-    });
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -183,166 +187,138 @@ export default function Hero() {
                 boxShadow: "0 32px 80px rgba(0, 0, 0, 0.6)",
               }}
             >
-              <AnimatePresence mode="wait">
-                {!isSuccess ? (
-                  <motion.form 
-                    key="form"
-                    onSubmit={handleSubmit} 
-                    className="space-y-4"
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {/* Honeypot field (hidden for users) */}
-                    <input
-                      type="text"
-                      name="_hp"
-                      value={formData._hp}
-                      onChange={handleInputChange}
-                      className="absolute -top-[9999px] -left-[9999px] w-px h-px opacity-0"
-                      tabIndex={-1}
-                      aria-hidden="true"
-                      autoComplete="off"
-                    />
+              <motion.form 
+                key="form"
+                onSubmit={handleSubmit} 
+                className="space-y-4"
+              >
+                {/* Honeypot field (hidden for users) */}
+                <input
+                  type="text"
+                  name="_hp"
+                  value={formData._hp}
+                  onChange={handleInputChange}
+                  className="absolute -top-[9999px] -left-[9999px] w-px h-px opacity-0"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  autoComplete="off"
+                />
 
-                    {/* Form Header */}
+                {/* Form Header */}
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                    <span className="text-xs font-bold tracking-widest uppercase text-white">
+                      Connect
+                    </span>
+                  </div>
+                  <h2 className="text-white font-extrabold text-xl leading-tight">
+                    Get Your Project Started
+                  </h2>
+                  <p className="text-white/50 text-xs mt-1">
+                    Launch your platform today
+                  </p>
+                </div>
+
+                {/* Inputs */}
+                <div className="space-y-3.5">
+                  <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                        <span className="text-xs font-bold tracking-widest uppercase text-white">
-                          Connect
-                        </span>
-                      </div>
-                      <h2 className="text-white font-extrabold text-xl leading-tight">
-                        Get Your Project Started
-                      </h2>
-                      <p className="text-white/50 text-xs mt-1">
-                        Launch your platform today
-                      </p>
+                      <input
+                        type="text"
+                        name="firstName"
+                        placeholder="Rahul"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-[#111111]/50 border ${
+                          errors.firstName ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
+                        }`}
+                      />
+                      {errors.firstName && (
+                        <span className="text-[10px] text-red-400 mt-1 block pl-1">{errors.firstName}</span>
+                      )}
                     </div>
-
-                    {/* Inputs */}
-                    <div className="space-y-3.5">
-                      <div className="grid grid-cols-2 gap-3">
-                        <div>
-                          <input
-                            type="text"
-                            name="firstName"
-                            placeholder="Rahul"
-                            value={formData.firstName}
-                            onChange={handleInputChange}
-                            className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-[#111111]/50 border ${
-                              errors.firstName ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
-                            }`}
-                          />
-                          {errors.firstName && (
-                            <span className="text-[10px] text-red-400 mt-1 block pl-1">{errors.firstName}</span>
-                          )}
-                        </div>
-                        <div>
-                          <input
-                            type="text"
-                            name="lastName"
-                            placeholder="Sharma"
-                            value={formData.lastName}
-                            onChange={handleInputChange}
-                            className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-[#111111]/50 border ${
-                              errors.lastName ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
-                            }`}
-                          />
-                          {errors.lastName && (
-                            <span className="text-[10px] text-red-400 mt-1 block pl-1">{errors.lastName}</span>
-                          )}
-                        </div>
-                      </div>
-
-                      <div>
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="rahul@example.com"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border ${
-                            errors.email ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
-                          }`}
-                        />
-                        {errors.email && (
-                          <span className="text-[10px] text-red-400 mt-1 block pl-1">{errors.email}</span>
-                        )}
-                      </div>
-
-                      <div>
-                        <input
-                          type="tel"
-                          name="phone"
-                          placeholder="+91 98765 43210"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border border-[#27272A]"
-                        />
-                      </div>
-
-                      <div>
-                        <select
-                          name="service"
-                          value={formData.service}
-                          onChange={handleInputChange}
-                          className={`w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border ${
-                            errors.service ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
-                          } ${formData.service ? "text-white" : "text-white/40"}`}
-                        >
-                          <option value="" className="bg-[#171717]" disabled>
-                            Select a Service *
-                          </option>
-                          {servicesList.map((srv) => (
-                            <option key={srv} value={srv} className="bg-[#171717]">
-                              {srv}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.service && (
-                          <span className="text-[10px] text-red-400 mt-1 block pl-1">{errors.service}</span>
-                        )}
-                      </div>
-
-                      {/* Submit */}
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="btn-shimmer w-full py-4 rounded-xl text-[#0A0A0A] font-extrabold text-sm transition-all duration-300 bg-white hover:bg-zinc-200 shadow-md cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
-                      >
-                        {isSubmitting ? "Sending Request..." : "Get In Touch 🚀"}
-                      </button>
+                    <div>
+                      <input
+                        type="text"
+                        name="lastName"
+                        placeholder="Sharma"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-[#111111]/50 border ${
+                          errors.lastName ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
+                        }`}
+                      />
+                      {errors.lastName && (
+                        <span className="text-[10px] text-red-400 mt-1 block pl-1">{errors.lastName}</span>
+                      )}
                     </div>
+                  </div>
 
-                    <p className="text-white/30 text-[10px] text-center mt-4">
-                      🔒 100% secure. We respect your privacy. No spam.
-                    </p>
-                  </motion.form>
-                ) : (
-                  <motion.div
-                    key="success"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="flex flex-col items-center justify-center text-center py-10"
-                  >
-                    <CheckCircle2 className="w-16 h-16 text-white mb-5 stroke-[1.5]" />
-                    <h3 className="text-white font-extrabold text-2xl mb-3">
-                      Thank You!
-                    </h3>
-                    <p className="text-white/80 text-sm leading-relaxed max-w-sm mb-6 font-light">
-                      Your request has been received. Our team will contact you shortly.
-                    </p>
-                    <button
-                      onClick={() => setIsSuccess(false)}
-                      className="px-6 py-2.5 rounded-lg border border-zinc-700 text-white hover:bg-white/10 transition-colors text-xs font-semibold"
+                  <div>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="rahul@example.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border ${
+                        errors.email ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
+                      }`}
+                    />
+                    {errors.email && (
+                      <span className="text-[10px] text-red-400 mt-1 block pl-1">{errors.email}</span>
+                    )}
+                  </div>
+
+                  <div>
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="+91 98765 43210"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border border-[#27272A]"
+                    />
+                  </div>
+
+                  <div>
+                    <select
+                      name="service"
+                      value={formData.service}
+                      onChange={handleInputChange}
+                      className={`w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border ${
+                        errors.service ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
+                      } ${formData.service ? "text-white" : "text-white/40"}`}
                     >
-                      Submit Another Request
-                    </button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                      <option value="" className="bg-[#171717]" disabled>
+                        Select a Service *
+                      </option>
+                      {servicesList.map((srv) => (
+                        <option key={srv} value={srv} className="bg-[#171717]">
+                          {srv}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.service && (
+                      <span className="text-[10px] text-red-400 mt-1 block pl-1">{errors.service}</span>
+                    )}
+                  </div>
+
+                  {/* Submit */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="btn-shimmer w-full py-4 rounded-xl text-[#0A0A0A] font-extrabold text-sm transition-all duration-300 bg-white hover:bg-zinc-200 shadow-md cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? "Sending Request..." : "Get In Touch 🚀"}
+                  </button>
+                </div>
+
+                <p className="text-white/30 text-[10px] text-center mt-4">
+                  🔒 100% secure. We respect your privacy. No spam.
+                </p>
+              </motion.form>
             </div>
           </motion.div>
         </div>

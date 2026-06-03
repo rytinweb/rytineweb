@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Mail, MapPin, CheckCircle2, Phone } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Mail, MapPin, Phone } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -18,7 +18,6 @@ export default function ContactPage() {
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -53,17 +52,25 @@ export default function ContactPage() {
     if (!validate()) return;
 
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    
+    // Brief loading state
+    await new Promise((resolve) => setTimeout(resolve, 600));
+
+    const name = formData.name;
+    const email = formData.email;
+    const phone = formData.phone || "Not provided";
+    const company = formData.businessName || "Not provided";
+    const service = "General Inquiry";
+    const message = formData.message;
+
+    const text = `New Website Inquiry\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company}\n\nInterested In:\n${service}\n\nProject Details:\n${message}\n\nSent from RYTINWEB Website`;
+    const encodedMessage = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/919891321840?text=${encodedMessage}`;
+
     setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      businessName: "",
-      message: "",
-      _hp: "",
-    });
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -139,125 +146,101 @@ export default function ContactPage() {
             {/* Right: Contact Form */}
             <div className="lg:col-span-7">
               <div className="bg-[#171717] rounded-2xl p-6 md:p-8 border border-[#27272A] shadow-md relative">
-                <AnimatePresence mode="wait">
-                  {!isSuccess ? (
-                    <motion.form
-                      key="contact-form"
-                      onSubmit={handleSubmit}
-                      className="space-y-4"
-                      exit={{ opacity: 0, y: -10 }}
-                    >
-                      <input
-                        type="text"
-                        name="_hp"
-                        value={formData._hp}
-                        onChange={handleInputChange}
-                        className="absolute -top-[9999px] -left-[9999px] w-px h-px opacity-0"
-                        tabIndex={-1}
-                        aria-hidden="true"
-                        autoComplete="off"
-                      />
+                  <motion.form
+                    key="contact-form"
+                    onSubmit={handleSubmit}
+                    className="space-y-4"
+                  >
+                    <input
+                      type="text"
+                      name="_hp"
+                      value={formData._hp}
+                      onChange={handleInputChange}
+                      className="absolute -top-[9999px] -left-[9999px] w-px h-px opacity-0"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      autoComplete="off"
+                    />
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Name *</label>
-                          <input
-                            type="text"
-                            name="name"
-                            placeholder="Rahul Sharma"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                            className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-[#111111]/50 text-white outline-none transition-all ${
-                              errors.name ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
-                            }`}
-                          />
-                          {errors.name && <span className="text-[10px] text-red-500 mt-1 block pl-1">{errors.name}</span>}
-                        </div>
-                        <div>
-                          <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Email Address *</label>
-                          <input
-                            type="email"
-                            name="email"
-                            placeholder="rahul@example.com"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-[#111111]/50 text-white outline-none transition-all ${
-                              errors.email ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
-                            }`}
-                          />
-                          {errors.email && <span className="text-[10px] text-red-500 mt-1 block pl-1">{errors.email}</span>}
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Phone (Optional)</label>
-                          <input
-                            type="tel"
-                            name="phone"
-                            placeholder="+91 98765 43210"
-                            value={formData.phone}
-                            onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-xl text-sm border border-[#27272A] bg-[#111111]/50 text-white focus:ring-2 focus:ring-primary outline-none transition-all"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Business Name</label>
-                          <input
-                            type="text"
-                            name="businessName"
-                            placeholder="Your Business Name"
-                            value={formData.businessName}
-                            onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-xl text-sm border border-[#27272A] bg-[#111111]/50 text-white focus:ring-2 focus:ring-primary outline-none transition-all"
-                          />
-                        </div>
-                      </div>
-
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Your Message *</label>
-                        <textarea
-                          name="message"
-                          rows={5}
-                          placeholder="Tell us about your project or business requirements..."
-                          value={formData.message}
+                        <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Name *</label>
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder="Rahul Sharma"
+                          value={formData.name}
                           onChange={handleInputChange}
-                          className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-[#111111]/50 text-white outline-none transition-all resize-none ${
-                            errors.message ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
+                          className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-[#111111]/50 text-white outline-none transition-all ${
+                            errors.name ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
                           }`}
                         />
-                        {errors.message && <span className="text-[10px] text-red-500 mt-1 block pl-1">{errors.message}</span>}
+                        {errors.name && <span className="text-[10px] text-red-500 mt-1 block pl-1">{errors.name}</span>}
                       </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Email Address *</label>
+                        <input
+                          type="email"
+                          name="email"
+                          placeholder="rahul@example.com"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-[#111111]/50 text-white outline-none transition-all ${
+                            errors.email ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
+                          }`}
+                        />
+                        {errors.email && <span className="text-[10px] text-red-500 mt-1 block pl-1">{errors.email}</span>}
+                      </div>
+                    </div>
 
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="btn-shimmer w-full py-4 text-[#0A0A0A] font-extrabold rounded-xl text-sm bg-white shadow-md hover:bg-zinc-200 disabled:opacity-70 disabled:cursor-not-allowed transition-all"
-                      >
-                        {isSubmitting ? "Sending message..." : "Send Message"}
-                      </button>
-                    </motion.form>
-                  ) : (
-                    <motion.div
-                      key="contact-success"
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="flex flex-col items-center justify-center text-center py-12"
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Phone (Optional)</label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          placeholder="+91 98765 43210"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-3 rounded-xl text-sm border border-[#27272A] bg-[#111111]/50 text-white focus:ring-2 focus:ring-primary outline-none transition-all"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Business Name</label>
+                        <input
+                          type="text"
+                          name="businessName"
+                          placeholder="Your Business Name"
+                          value={formData.businessName}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-3 rounded-xl text-sm border border-[#27272A] bg-[#111111]/50 text-white focus:ring-2 focus:ring-primary outline-none transition-all"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Your Message *</label>
+                      <textarea
+                        name="message"
+                        rows={5}
+                        placeholder="Tell us about your project or business requirements..."
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-[#111111]/50 text-white outline-none transition-all resize-none ${
+                          errors.message ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
+                        }`}
+                      />
+                      {errors.message && <span className="text-[10px] text-red-500 mt-1 block pl-1">{errors.message}</span>}
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="btn-shimmer w-full py-4 text-[#0A0A0A] font-extrabold rounded-xl text-sm bg-white shadow-md hover:bg-zinc-200 disabled:opacity-70 disabled:cursor-not-allowed transition-all"
                     >
-                      <CheckCircle2 className="w-16 h-16 text-white mb-5 stroke-[1.5]" />
-                      <h2 className="text-white font-extrabold text-2xl mb-3">Message Sent!</h2>
-                      <p className="text-zinc-400 text-sm max-w-sm mb-6 leading-relaxed">
-                        Thank you for reaching out. A RYTINWEB representative will contact you within 24 hours.
-                      </p>
-                      <button
-                        onClick={() => setIsSuccess(false)}
-                        className="px-6 py-2 rounded-lg border border-zinc-700 text-white hover:bg-white/10 transition-colors text-xs font-semibold"
-                      >
-                        Send Another Message
-                      </button>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      {isSubmitting ? "Sending message..." : "Send Message"}
+                    </button>
+                  </motion.form>
               </div>
             </div>
 
