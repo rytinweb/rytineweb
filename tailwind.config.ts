@@ -36,11 +36,10 @@ const config: Config = {
       borderRadius: {
         btn: "12px",
       },
-      height: {
-        "header-h": "70px",
+      spacing: {
+        "header-h": "56px",
       },
       padding: {
-        "header-h": "70px",
         "section-y": "80px",
         "section-y-sm": "40px",
       },

@@ -81,7 +81,7 @@ export default function Header() {
                 return (
                   <div
                     key={item.label}
-                    className="relative py-4"
+                    className="relative py-3"
                     onMouseEnter={() => handleDropdownEnter(item.label)}
                     onMouseLeave={handleDropdownLeave}
                   >
@@ -157,7 +157,7 @@ export default function Header() {
             {/* Get In Touch CTA */}
             <Link
               href="/contact"
-              className="btn-shimmer hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-[#0A0A0A] font-bold rounded-btn text-sm transition-all duration-200 min-h-[44px] bg-white shadow-md hover:bg-zinc-200"
+              className="btn-shimmer hidden lg:inline-flex items-center justify-center px-5 py-1.5 text-[#0A0A0A] font-bold rounded-btn text-sm transition-all duration-200 min-h-[38px] bg-white shadow-md hover:bg-zinc-200"
             >
               Get In Touch
             </Link>

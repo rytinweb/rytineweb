@@ -15,6 +15,9 @@ export default function ContactForm() {
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [lastSubmitTime, setLastSubmitTime] = useState<number>(0);
+  const [lastSubmittedData, setLastSubmittedData] = useState<string>("");
+  const [submitMessage, setSubmitMessage] = useState<string>("");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -30,41 +33,126 @@ export default function ContactForm() {
 
   const validate = () => {
     const nextErrors: { [key: string]: string } = {};
-    if (!formData.name.trim()) nextErrors.name = "Name is required";
-    if (!formData.email.trim()) {
-      nextErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      nextErrors.email = "Invalid email address";
+    const fakeNames = ["test", "testing", "demo", "admin", "user", "abc", "xyz", "sample"];
+    const fakePhones = ["0000000000", "1111111111", "1234567890", "9999999999", "9876543210"];
+    const disposableDomains = ["mailinator.com", "yopmail.com", "tempmail.com", "guerrillamail.com", "sharklasers.com", "dispostable.com", "getairmail.com"];
+
+    // Name Validation
+    const nameTrim = formData.name.trim();
+    if (!nameTrim) {
+      nextErrors.name = "Name is required";
+    } else if (nameTrim.length < 2) {
+      nextErrors.name = "Name must be at least 2 characters";
+    } else if (nameTrim.length > 50) {
+      nextErrors.name = "Name cannot exceed 50 characters";
+    } else if (!/^[A-Za-z\s]+$/.test(nameTrim)) {
+      nextErrors.name = "Name can only contain letters and spaces";
+    } else if (fakeNames.includes(nameTrim.toLowerCase())) {
+      nextErrors.name = "Please enter a valid name";
     }
-    if (!formData.message.trim()) nextErrors.message = "Message is required";
+
+    // Email Validation
+    const emailTrim = formData.email.trim();
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailDomain = emailTrim.split("@")[1]?.toLowerCase();
+    if (!emailTrim) {
+      nextErrors.email = "Email is required";
+    } else if (!emailRegex.test(emailTrim)) {
+      nextErrors.email = "Please enter a valid email address";
+    } else if (/^(test|demo|example|admin|info)@/.test(emailTrim.toLowerCase()) || emailTrim.endsWith(".temp") || emailTrim.endsWith(".test")) {
+      nextErrors.email = "Please enter a valid business or personal email address";
+    } else if (emailDomain && disposableDomains.includes(emailDomain)) {
+      nextErrors.email = "Disposable email addresses are not allowed";
+    }
+
+    // Phone Validation
+    const phoneTrim = formData.phone.trim();
+    const cleanPhone = phoneTrim.replace(/\D/g, "");
+    if (!phoneTrim) {
+      nextErrors.phone = "Phone number is required";
+    } else if (cleanPhone.length !== 10 || /[a-zA-Z]/.test(phoneTrim) || /[^0-9\s+\-()]/.test(phoneTrim)) {
+      nextErrors.phone = "Phone number must be exactly 10 digits";
+    } else if (fakePhones.includes(cleanPhone)) {
+      nextErrors.phone = "Please enter a valid phone number";
+    }
+
+    // Message Validation
+    const messageTrim = formData.message.trim();
+    if (!messageTrim) {
+      nextErrors.message = "Message is required";
+    } else if (messageTrim.length < 20) {
+      nextErrors.message = "Message must be at least 20 characters";
+    } else if (messageTrim.length > 1000) {
+      nextErrors.message = "Message cannot exceed 1000 characters";
+    } else if (/^[0-9\s+\-()]+$/.test(messageTrim)) {
+      nextErrors.message = "Message cannot contain only numbers";
+    } else if (/^[^a-zA-Z0-9]+$/.test(messageTrim)) {
+      nextErrors.message = "Message cannot contain only symbols";
+    }
 
     setErrors(nextErrors);
-    return Object.keys(nextErrors).length === 0;
+    return nextErrors;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData._hp) return;
 
-    if (!validate()) return;
+    setSubmitMessage("");
+
+    // Validate and auto-focus first invalid element
+    const nextErrors = validate();
+    const errorKeys = Object.keys(nextErrors);
+    if (errorKeys.length > 0) {
+      const firstErrorField = errorKeys[0];
+      const formElement = e.currentTarget as HTMLFormElement;
+      const input = formElement.elements.namedItem(firstErrorField) as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+      if (input) {
+        input.focus();
+      }
+      return;
+    }
+
+    // Submission Cooldown (10 seconds)
+    const now = Date.now();
+    if (now - lastSubmitTime < 10000) {
+      setSubmitMessage("Please wait 10 seconds before submitting again.");
+      return;
+    }
+
+    // Duplicate Submission Prevention
+    const currentDataStr = JSON.stringify({
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim().replace(/\D/g, ""),
+      message: formData.message.trim(),
+    });
+    if (currentDataStr === lastSubmittedData) {
+      setSubmitMessage("This inquiry has already been submitted.");
+      return;
+    }
 
     setIsSubmitting(true);
-    
+    setSubmitMessage("Processing your request...");
+
     // Brief loading state
     await new Promise((resolve) => setTimeout(resolve, 600));
 
-    const name = formData.name;
-    const email = formData.email;
-    const phone = formData.phone || "Not provided";
-    const company = formData.company || "Not provided";
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const phone = formData.phone.trim();
+    const company = formData.company.trim() || "Not provided";
     const service = "General Inquiry";
-    const message = formData.message;
+    const message = formData.message.trim();
 
     const text = `New Website Inquiry\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${company}\n\nInterested In:\n${service}\n\nProject Details:\n${message}\n\nSent from RYTINWEB Website`;
     const encodedMessage = encodeURIComponent(text);
     const whatsappUrl = `https://wa.me/919891321840?text=${encodedMessage}`;
 
+    setLastSubmitTime(now);
+    setLastSubmittedData(currentDataStr);
     setIsSubmitting(false);
+    setSubmitMessage("Redirecting to WhatsApp...");
 
     // Open WhatsApp in a new tab
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
@@ -120,15 +208,18 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Phone (Optional)</label>
+          <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Phone Number *</label>
           <input
             type="tel"
             name="phone"
             placeholder="+91 98765 43210"
             value={formData.phone}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 rounded-xl text-sm border border-[#27272A] bg-[#111111]/50 text-white focus:ring-2 focus:ring-primary outline-none transition-all"
+            className={`w-full px-4 py-3 rounded-xl text-sm border focus:ring-2 focus:ring-primary bg-[#111111]/50 text-white outline-none transition-all ${
+              errors.phone ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
+            }`}
           />
+          {errors.phone && <span className="text-[10px] text-red-500 mt-1 block pl-1">{errors.phone}</span>}
         </div>
         <div>
           <label className="block text-xs font-bold uppercase text-zinc-500 mb-1.5 pl-0.5">Company (Optional)</label>
@@ -165,6 +256,16 @@ export default function ContactForm() {
       >
         {isSubmitting ? "Sending message..." : "Send Message"}
       </button>
+
+      {submitMessage && (
+        <span className={`text-xs block text-center mt-2 ${
+          submitMessage.includes("success") || submitMessage.includes("Redirecting") || submitMessage.includes("Processing")
+            ? "text-green-400"
+            : "text-amber-400"
+        }`}>
+          {submitMessage}
+        </span>
+      )}
     </motion.form>
   );
 }

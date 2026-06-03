@@ -86,10 +86,10 @@ export default function Preloader() {
                 <Image 
                   src="/logos/icon.png" 
                   alt="RYTINWEB Icon" 
-                  width={56}
-                  height={56}
+                  width={192}
+                  height={192}
                   priority
-                  className="object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]" 
+                  className="w-40 h-40 md:w-48 md:h-48 max-w-none object-contain translate-y-[5.17%] filter drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]" 
                 />
               </div>
             </div>

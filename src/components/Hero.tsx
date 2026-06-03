@@ -19,6 +19,9 @@ export default function Hero() {
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [lastSubmitTime, setLastSubmitTime] = useState<number>(0);
+  const [lastSubmittedData, setLastSubmittedData] = useState<string>("");
+  const [submitMessage, setSubmitMessage] = useState<string>("");
 
   const servicesList = [
     "Web Design & Development",
@@ -43,34 +46,121 @@ export default function Hero() {
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
-    if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
-    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Invalid email address";
+    const fakeNames = ["test", "testing", "demo", "admin", "user", "abc", "xyz", "sample"];
+    const fakePhones = ["0000000000", "1111111111", "1234567890", "9999999999", "9876543210"];
+    const disposableDomains = ["mailinator.com", "yopmail.com", "tempmail.com", "guerrillamail.com", "sharklasers.com", "dispostable.com", "getairmail.com"];
+
+    // First Name
+    const firstNameTrim = formData.firstName.trim();
+    if (!firstNameTrim) {
+      newErrors.firstName = "First name is required";
+    } else if (firstNameTrim.length < 2) {
+      newErrors.firstName = "Must be at least 2 characters";
+    } else if (firstNameTrim.length > 50) {
+      newErrors.firstName = "Cannot exceed 50 characters";
+    } else if (!/^[A-Za-z\s]+$/.test(firstNameTrim)) {
+      newErrors.firstName = "Only letters and spaces";
+    } else if (fakeNames.includes(firstNameTrim.toLowerCase())) {
+      newErrors.firstName = "Enter a valid name";
     }
-    if (!formData.service) newErrors.service = "Please select a service";
+
+    // Last Name
+    const lastNameTrim = formData.lastName.trim();
+    if (!lastNameTrim) {
+      newErrors.lastName = "Last name is required";
+    } else if (lastNameTrim.length < 2) {
+      newErrors.lastName = "Must be at least 2 characters";
+    } else if (lastNameTrim.length > 50) {
+      newErrors.lastName = "Cannot exceed 50 characters";
+    } else if (!/^[A-Za-z\s]+$/.test(lastNameTrim)) {
+      newErrors.lastName = "Only letters and spaces";
+    } else if (fakeNames.includes(lastNameTrim.toLowerCase())) {
+      newErrors.lastName = "Enter a valid name";
+    }
+
+    // Email
+    const emailTrim = formData.email.trim();
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailDomain = emailTrim.split("@")[1]?.toLowerCase();
+    if (!emailTrim) {
+      newErrors.email = "Email is required";
+    } else if (!emailRegex.test(emailTrim)) {
+      newErrors.email = "Please enter a valid email address";
+    } else if (/^(test|demo|example|admin|info)@/.test(emailTrim.toLowerCase()) || emailTrim.endsWith(".temp") || emailTrim.endsWith(".test")) {
+      newErrors.email = "Please enter a valid email address";
+    } else if (emailDomain && disposableDomains.includes(emailDomain)) {
+      newErrors.email = "Disposable emails not allowed";
+    }
+
+    // Phone
+    const phoneTrim = formData.phone.trim();
+    const cleanPhone = phoneTrim.replace(/\D/g, "");
+    if (!phoneTrim) {
+      newErrors.phone = "Phone number is required";
+    } else if (cleanPhone.length !== 10 || /[a-zA-Z]/.test(phoneTrim) || /[^0-9\s+\-()]/.test(phoneTrim)) {
+      newErrors.phone = "Must be exactly 10 digits";
+    } else if (fakePhones.includes(cleanPhone)) {
+      newErrors.phone = "Please enter a valid phone number";
+    }
+
+    // Service
+    if (!formData.service) {
+      newErrors.service = "Please select a service";
+    }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return newErrors;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData._hp) return; // Silent discard for honeypot bot submissions
+    if (formData._hp) return;
 
-    if (!validateForm()) return;
+    setSubmitMessage("");
+
+    // Validate and auto-focus first invalid element
+    const nextErrors = validateForm();
+    const errorKeys = Object.keys(nextErrors);
+    if (errorKeys.length > 0) {
+      const firstErrorField = errorKeys[0];
+      const formElement = e.currentTarget as HTMLFormElement;
+      const input = formElement.elements.namedItem(firstErrorField) as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+      if (input) {
+        input.focus();
+      }
+      return;
+    }
+
+    // Submission Cooldown (10 seconds)
+    const now = Date.now();
+    if (now - lastSubmitTime < 10000) {
+      setSubmitMessage("Please wait 10 seconds before submitting again.");
+      return;
+    }
+
+    // Duplicate Submission Prevention
+    const currentDataStr = JSON.stringify({
+      firstName: formData.firstName.trim(),
+      lastName: formData.lastName.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim().replace(/\D/g, ""),
+      service: formData.service,
+    });
+    if (currentDataStr === lastSubmittedData) {
+      setSubmitMessage("This inquiry has already been submitted.");
+      return;
+    }
 
     setIsSubmitting(true);
+    setSubmitMessage("Processing your request...");
 
     // Brief loading state
     await new Promise((resolve) => setTimeout(resolve, 600));
 
-    const name = `${formData.firstName} ${formData.lastName}`.trim();
-    const email = formData.email;
-    const phone = formData.phone || "Not provided";
-    const company = formData.company || "Not provided";
+    const name = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
+    const email = formData.email.trim();
+    const phone = formData.phone.trim();
+    const company = formData.company.trim() || "Not provided";
     const service = formData.service;
     const message = "Inquiry submitted via Hero quick form.";
 
@@ -78,14 +168,17 @@ export default function Hero() {
     const encodedMessage = encodeURIComponent(text);
     const whatsappUrl = `https://wa.me/919891321840?text=${encodedMessage}`;
 
+    setLastSubmitTime(now);
+    setLastSubmittedData(currentDataStr);
     setIsSubmitting(false);
+    setSubmitMessage("Redirecting to WhatsApp...");
 
     // Open WhatsApp in a new tab
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
-    <section className="relative overflow-hidden flex items-center min-h-[calc(100vh-70px)] bg-dark pt-24 pb-16">
+    <section className="relative overflow-hidden flex items-center min-h-[calc(100vh-56px)] bg-dark pt-6 pb-6 md:pt-8 md:pb-8 lg:pt-8 lg:pb-8">
       {/* Background Image */}
       <Image
         src="/images/hero-leading-web-design.png"
@@ -111,7 +204,7 @@ export default function Hero() {
       />
 
       {/* Hero Container */}
-      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-8 py-12 md:py-20 w-full z-10">
+      <div className="relative max-w-[1280px] mx-auto px-6 lg:px-8 py-4 md:py-6 w-full z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Heading Copy */}
@@ -121,7 +214,7 @@ export default function Hero() {
             transition={{ duration: 0.7 }}
           >
             {/* Top Tagline Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass mb-8">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass mb-3 lg:mb-4">
               <span className="w-2 h-2 rounded-full bg-white animate-pulse shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
               <span className="text-white/80 text-xs md:text-sm font-medium tracking-wide">
                 Premium Web Design &amp; Frontend Engineering Agency
@@ -130,7 +223,7 @@ export default function Hero() {
 
             {/* Main Headline */}
             <h1 
-              className="font-black text-white leading-tight mb-6"
+              className="font-black text-white leading-tight mb-2 lg:mb-3"
               style={{ fontSize: "clamp(2.4rem, 5.5vw, 4rem)", lineHeight: 1.1 }}
             >
               Engineered to Scale <br />
@@ -138,12 +231,12 @@ export default function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-lg mb-10 font-light">
+            <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-lg mb-4 lg:mb-5 font-light">
               High-performance Next.js architectures, custom design systems, and SEO positioning programmed for fast-growing brands.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 mb-4 lg:mb-6">
               <Link
                 href="/contact"
                 className="btn-shimmer group inline-flex items-center justify-center gap-2 px-8 py-4 text-[#0A0A0A] font-extrabold rounded-btn text-base transition-all duration-300 bg-white hover:bg-zinc-200 shadow-md"
@@ -180,7 +273,7 @@ export default function Hero() {
             className="w-full"
           >
             <div 
-              className="rounded-2xl p-6 md:p-8 relative overflow-hidden"
+              className="rounded-2xl p-4 sm:p-5 lg:p-4 xl:p-6 relative overflow-hidden"
               style={{
                 background: "rgba(23, 23, 23, 0.85)",
                 backdropFilter: "blur(24px)",
@@ -191,7 +284,7 @@ export default function Hero() {
               <motion.form 
                 key="form"
                 onSubmit={handleSubmit} 
-                className="space-y-4"
+                className="space-y-2.5 lg:space-y-3"
               >
                 {/* Honeypot field (hidden for users) */}
                 <input
@@ -222,7 +315,7 @@ export default function Hero() {
                 </div>
 
                 {/* Inputs */}
-                <div className="space-y-3.5">
+                <div className="space-y-2 lg:space-y-2.5">
                   <div className="grid grid-cols-2 gap-3">
                     <div>
                       <input
@@ -231,7 +324,7 @@ export default function Hero() {
                         placeholder="Rahul"
                         value={formData.firstName}
                         onChange={handleInputChange}
-                        className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-[#111111]/50 border ${
+                        className={`w-full px-4 py-2.5 xl:py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-[#111111]/50 border ${
                           errors.firstName ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
                         }`}
                       />
@@ -246,7 +339,7 @@ export default function Hero() {
                         placeholder="Sharma"
                         value={formData.lastName}
                         onChange={handleInputChange}
-                        className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-[#111111]/50 border ${
+                        className={`w-full px-4 py-2.5 xl:py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-primary bg-[#111111]/50 border ${
                           errors.lastName ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
                         }`}
                       />
@@ -263,7 +356,7 @@ export default function Hero() {
                       placeholder="rahul@example.com"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border ${
+                      className={`w-full px-4 py-2.5 xl:py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border ${
                         errors.email ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
                       }`}
                     />
@@ -277,11 +370,16 @@ export default function Hero() {
                       <input
                         type="tel"
                         name="phone"
-                        placeholder="Phone (Optional)"
+                        placeholder="Phone Number *"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border border-[#27272A]"
+                        className={`w-full px-4 py-2.5 xl:py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border ${
+                          errors.phone ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
+                        }`}
                       />
+                      {errors.phone && (
+                        <span className="text-[10px] text-red-400 mt-1 block pl-1">{errors.phone}</span>
+                      )}
                     </div>
                     <div>
                       <input
@@ -290,7 +388,7 @@ export default function Hero() {
                         placeholder="Company"
                         value={formData.company}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border border-[#27272A]"
+                        className="w-full px-4 py-2.5 xl:py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border border-[#27272A]"
                       />
                     </div>
                   </div>
@@ -300,7 +398,7 @@ export default function Hero() {
                       name="service"
                       value={formData.service}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border ${
+                      className={`w-full px-4 py-2.5 xl:py-3 rounded-xl text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border ${
                         errors.service ? "border-red-500 focus:ring-red-400" : "border-[#27272A]"
                       } ${formData.service ? "text-white" : "text-white/40"}`}
                     >
@@ -322,13 +420,23 @@ export default function Hero() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="btn-shimmer w-full py-4 rounded-xl text-[#0A0A0A] font-extrabold text-sm transition-all duration-300 bg-white hover:bg-zinc-200 shadow-md cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
+                    className="btn-shimmer w-full py-3 lg:py-3.5 xl:py-4 rounded-xl text-[#0A0A0A] font-extrabold text-sm transition-all duration-300 bg-white hover:bg-zinc-200 shadow-md cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? "Sending Request..." : "Get In Touch 🚀"}
                   </button>
                 </div>
 
-                <p className="text-white/30 text-[10px] text-center mt-4">
+                {submitMessage && (
+                  <p className={`text-xs text-center mt-2 ${
+                    submitMessage.includes("success") || submitMessage.includes("Redirecting") || submitMessage.includes("Processing")
+                      ? "text-green-400"
+                      : "text-amber-400"
+                  }`}>
+                    {submitMessage}
+                  </p>
+                )}
+
+                <p className="text-white/30 text-[10px] text-center mt-2 lg:mt-3">
                   🔒 100% secure. We respect your privacy. No spam.
                 </p>
               </motion.form>
