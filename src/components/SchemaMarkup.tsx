@@ -43,16 +43,22 @@ export default function SchemaMarkup({ type, breadcrumbs }: SchemaProps) {
       'priceRange': '$$',
       'address': {
         '@type': 'PostalAddress',
+        'streetAddress': 'Shiv Vihar',
         'addressLocality': 'Delhi',
+        'postalCode': '110094',
         'addressRegion': 'DL',
         'addressCountry': 'IN'
+      },
+      'geo': {
+        '@type': 'GeoCoordinates',
+        'latitude': '28.7183',
+        'longitude': '77.2882'
       },
       'areaServed': [
         { '@type': 'AdministrativeArea', 'name': 'Delhi' },
         { '@type': 'AdministrativeArea', 'name': 'Delhi NCR' },
         { '@type': 'AdministrativeArea', 'name': 'Noida' },
-        { '@type': 'AdministrativeArea', 'name': 'Gurugram' },
-        { '@type': 'AdministrativeArea', 'name': 'India' }
+        { '@type': 'AdministrativeArea', 'name': 'Gurugram' }
       ]
     };
   } else if (type === 'WebSite') {
