@@ -21,19 +21,16 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = SERVICE_ITEMS.find((s) => s.href === `/services/${params.slug}`);
-  const isAds = params.slug === "google-ads-management";
 
-  const title = service 
-    ? `${service.title} Delhi | Custom Web Development RYTINWEB`
-    : isAds 
-      ? "Google Ads Management Services Delhi | RYTINWEB" 
-      : "Web Services Delhi | RYTINWEB";
+  if (!service) {
+    return {
+      title: "Services | RYTINWEB Web Engineering Delhi NCR",
+      description: "Professional custom web development and digital marketing services based in Delhi, India.",
+    };
+  }
 
-  const description = service 
-    ? `${service.description} Engineered for speed, custom-coded, and fully SEO-optimized by RYTINWEB in Delhi, Gurugram, and Noida.`
-    : isAds 
-      ? "Maximize your return on investment and drive instant sales leads with laser-focused Google PPC campaigns in Delhi NCR." 
-      : "Professional web development and design services based in Delhi, India.";
+  const title = service.metaTitle;
+  const description = service.metaDescription;
 
   return {
     title,
@@ -53,27 +50,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default function ServiceDetailPage({ params }: Props) {
   const service = SERVICE_ITEMS.find((s) => s.href === `/services/${params.slug}`);
 
-  // Fallback map for services that exist in navigation but aren't in core lists
-  const isAds = params.slug === "google-ads-management";
-  
-  const title = service 
-    ? service.title 
-    : isAds 
-      ? "Google Ads Management" 
-      : null;
-
-  const description = service 
-    ? service.description 
-    : isAds 
-      ? "Maximize your return on investment and drive instant sales leads with laser-focused Google PPC campaigns." 
-      : null;
-
-  const iconName = service ? service.iconName : isAds ? "Target" : null;
-
-  if (!title || !description) {
+  if (!service) {
     return notFound();
   }
 
+  const title = service.h1;
+  const description = service.introParagraph;
+  const iconName = service.iconName;
   const LucideIcon = (Icons as any)[iconName || "HelpCircle"] || Icons.HelpCircle;
 
   return (
@@ -82,7 +65,6 @@ export default function ServiceDetailPage({ params }: Props) {
       <main className="pt-header-h min-h-screen bg-[#0A0A0A]">
         {/* Banner Section */}
         <section className="bg-[#111111] border-b border-[#27272A] text-white py-16 md:py-24 relative overflow-hidden">
-          {/* Subtle orb background removed */}
           
           <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10 text-center">
             {/* Category */}
@@ -91,7 +73,7 @@ export default function ServiceDetailPage({ params }: Props) {
             </span>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight">
               {title}
             </h1>
 
@@ -119,23 +101,13 @@ export default function ServiceDetailPage({ params }: Props) {
 
               <div className="prose prose-gray max-w-none text-zinc-400 space-y-6 leading-relaxed">
                 <p>
-                  At RYTINWEB, we build tailored digital systems that align with your product objectives. We recognize that a premium application framework is more than just graphics; it is the engine of your brand growth.
-                </p>
-                <p>
-                  Our multi-disciplinary architects combine modern web technologies (including Next.js, React, Tailwind CSS, and headless architectures) with robust search engine positioning models. This ensures your service details rank on search indexes and convert passive visitors into active leads.
+                  {service.longDescription}
                 </p>
                 <p className="font-semibold text-white">
                   What is included in this service:
                 </p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pl-0 list-none">
-                  {[
-                    "100% Mobile-First Responsive layouts",
-                    "SEO-ready tags & semantic markup",
-                    "Performance-optimized load speeds",
-                    "Bespoke designs tailored to your brand",
-                    "Interactive Call-to-Actions (CTAs)",
-                    "Secure, maintenance-ready codebases",
-                  ].map((inc, i) => (
+                  {service.benefits.map((inc, i) => (
                     <li key={i} className="flex gap-2.5 items-center text-sm font-medium">
                       <span className="w-5 h-5 rounded-full bg-zinc-800 flex items-center justify-center text-white text-[10px] shrink-0 font-bold">
                         ✓
@@ -145,6 +117,27 @@ export default function ServiceDetailPage({ params }: Props) {
                   ))}
                 </ul>
               </div>
+
+              {/* FAQ Section */}
+              {service.faqs && service.faqs.length > 0 && (
+                <div className="pt-8 border-t border-[#27272A] mt-10">
+                  <h3 className="text-xl md:text-2xl font-extrabold text-white mb-6">
+                    Frequently Asked Questions
+                  </h3>
+                  <div className="space-y-6">
+                    {service.faqs.map((faq, i) => (
+                      <div key={i} className="space-y-2">
+                        <h4 className="text-white font-bold text-sm md:text-base">
+                          {faq.question}
+                        </h4>
+                        <p className="text-zinc-400 text-xs md:text-sm leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Right Sidebar */}
@@ -189,7 +182,7 @@ export default function ServiceDetailPage({ params }: Props) {
           </div>
         </section>
 
-        <CTA />
+        <CTA title={service.ctaTitle} description={service.ctaDesc} />
       </main>
       <Footer />
     </>

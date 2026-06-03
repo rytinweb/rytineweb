@@ -15,18 +15,18 @@ export const metadata: Metadata = {
 export default function WhoWeArePage() {
   const values = [
     { 
-      title: "Design-Driven Engineering", 
-      desc: "Our software engineers, UX designers, and search strategists collaborate directly to construct high-fidelity digital platforms.", 
+      title: "Our Mission", 
+      desc: "To empower startups and growing companies with Business Website Development and top-tier SEO Services India, converting visitors into clients.", 
       icon: Users 
     },
     { 
-      title: "Metric Alignment", 
-      desc: "We prioritize conversion metrics, speed metrics, and responsive usability to drive compounding growth for our partners.", 
+      title: "Our Vision", 
+      desc: "To become the leading hub for Website Design Delhi NCR trusts, establishing high digital standards for local and national businesses.", 
       icon: Target 
     },
     { 
-      title: "Premium Frameworks", 
-      desc: "We program bespoke React and Next.js applications featuring fluid animations and modular, maintainable code architectures.", 
+      title: "Responsive Website Design", 
+      desc: "We build layouts that adjust seamlessly to any mobile, tablet, or desktop screen, guaranteeing user satisfaction and search engine readiness.", 
       icon: Sparkles 
     },
   ];
@@ -45,7 +45,7 @@ export default function WhoWeArePage() {
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">Who We Are</h1>
             <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed font-light">
-              We are a design-forward digital engineering agency specializing in high-performance frontends and premium brand experiences.
+              A dedicated Web Development Agency Delhi businesses trust to build high-performance web experiences.
             </p>
           </div>
         </section>
@@ -56,16 +56,16 @@ export default function WhoWeArePage() {
             
             <div className="space-y-6 text-zinc-400 leading-relaxed text-sm md:text-base font-light">
               <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
-                Sleek Digital Frontends Engineered for High-Growth Brands
+                Custom Website Development for Growing Brands
               </h2>
               <p>
-                RYTINWEB is a modern web development agency built for the next generation of digital products. We bridge the gap between creative visual artistry and strict frontend software engineering.
+                RYTINWEB is a fast-growing digital agency focusing on end-to-end Website Development India solutions. We bridge the gap between stunning aesthetic interfaces and robust web engineering to build fast, modern web platforms.
               </p>
               <p>
-                We believe that premium web design should be transparent and accessible. We offer clean, flat-rate engagement structures to deliver custom-coded Next.js architectures that load instantly and capture intent.
+                As a results-oriented Digital Marketing Agency, we understand that a website is more than just code. We deliver custom business websites designed to build trust, capture high-quality leads, and rank on search engines.
               </p>
               <p>
-                Our philosophy centers on minimal, high-impact design. Every spacing ratio, typeface weight, and micro-interaction is intentionally crafted to elevate your brand presence.
+                Whether you need specialized Graphic Design Services to define your brand or high-performance React architectures, we align our engineering with your business goals to ensure digital growth.
               </p>
             </div>
 

@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 
 export default function OurStoryPage() {
   const milestones = [
-    { year: "2020", title: "Founding", desc: "Established RYTINWEB to bridge the gap between creative visual design and frontend software engineering." },
-    { year: "2022", title: "Design Systems", desc: "Expanded our focus to premium design systems, helping startups build clean, reusable digital brand libraries." },
-    { year: "2024", title: "Architecture Shift", desc: "Adopted Next.js App Router and headless setups as our default stack, prioritizing load times and conversion metrics." },
-    { year: "2026+", title: "Next Gen", desc: "Developing custom web environments and AI-assisted workflows to accelerate developer velocity and search visibility." },
+    { year: "Phase 1", title: "Agency Launch", desc: "RYTINWEB was established to offer Custom Website Development, bridging the gap between artistic visual layout and clean front-end code." },
+    { year: "Phase 2", title: "First Client Projects", desc: "Successfully partnered with local startups and brands in Noida and Gurugram, building fast business websites that load instantly." },
+    { year: "Phase 3", title: "Service Expansion", desc: "Introduced full-service digital strategies, providing comprehensive Website Maintenance Services and results-oriented SEO Services India." },
+    { year: "Phase 4", title: "Future Growth", desc: "Continuing to expand our presence in Delhi NCR, integrating new web technologies to support clients on their digital growth journey." },
   ];
 
   return (
@@ -33,7 +33,7 @@ export default function OurStoryPage() {
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4">Our Story</h1>
             <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed font-light">
-              How we scaled from a minimal design workshop to a premium, high-performance digital engineering agency.
+              Providing premium Website Design Delhi NCR and high-performance digital engineering services.
             </p>
           </div>
         </section>
@@ -45,16 +45,16 @@ export default function OurStoryPage() {
             {/* Left Story Text */}
             <div className="lg:col-span-6 space-y-6 text-zinc-400 leading-relaxed text-sm md:text-base font-light">
               <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
-                Bespoke engineering, designed to perform
+                Connecting Design with Clean Web Engineering
               </h2>
               <p>
-                RYTINWEB was founded to address a critical challenge in the digital space: the disconnect between visual design and technical execution. Too often, beautiful designs are bottlenecked by slow, legacy code, or high-performance code suffers from poor visual layouts.
+                At RYTINWEB, we specialize in Custom Website Development that helps businesses establish a strong online presence. We realized that many companies face a common challenge: a disconnect between creative visual concepts and technical execution.
               </p>
               <p>
-                We established RYTINWEB to bring both disciplines under one unified workflow. We write clean, semantic code, optimize performance, and design interfaces that capture brand identity.
+                Every project is crafted around Responsive Website Design principles to ensure seamless usability across all devices. We combine search visibility with clean, modern code to build interfaces that perform.
               </p>
               <p>
-                Today, we partner with high-growth teams and companies globally to launch, iterate, and maintain high-fidelity digital platforms. By emphasizing speed, usability, and clean typography, we build digital interfaces that convert.
+                We work closely with local startups and businesses in Noida, Gurugram, and the wider Delhi NCR area. By focusing on speed, clear communication, and transparent workflows, we build digital solutions that convert visitors into loyal clients.
               </p>
             </div>
 

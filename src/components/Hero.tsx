@@ -24,12 +24,11 @@ export default function Hero() {
   const [submitMessage, setSubmitMessage] = useState<string>("");
 
   const servicesList = [
-    "Web Design & Development",
-    "SEO Positioning",
+    "Custom Website Development",
+    "Website Maintenance",
+    "SEO Services",
+    "Digital Marketing",
     "Graphic Design",
-    "Social Optimization",
-    "System Maintenance",
-    "Custom Web Development",
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

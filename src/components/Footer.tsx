@@ -61,33 +61,28 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">What We Do</h3>
             <ul className="space-y-2 text-sm font-light">
               <li>
-                <Link href="/services/web-design-development" className="text-zinc-400 hover:text-white transition-colors py-1 block">
-                  Web Design & Development
+                <Link href="/services/custom-website-development" className="text-zinc-400 hover:text-white transition-colors py-1 block">
+                  Custom Website Development
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/website-maintenance" className="text-zinc-400 hover:text-white transition-colors py-1 block">
+                  Website Maintenance
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/seo" className="text-zinc-400 hover:text-white transition-colors py-1 block">
+                  SEO Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/digital-marketing" className="text-zinc-400 hover:text-white transition-colors py-1 block">
+                  Digital Marketing
                 </Link>
               </li>
               <li>
                 <Link href="/services/graphic-design" className="text-zinc-400 hover:text-white transition-colors py-1 block">
                   Graphic Design
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/seo" className="text-zinc-400 hover:text-white transition-colors py-1 block">
-                  SEO Positioning
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/social-media-optimization" className="text-zinc-400 hover:text-white transition-colors py-1 block">
-                  Social Optimization
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/website-maintenance" className="text-zinc-400 hover:text-white transition-colors py-1 block">
-                  System Maintenance
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/custom-web-development" className="text-zinc-400 hover:text-white transition-colors py-1 block">
-                  Custom Web Development
                 </Link>
               </li>
             </ul>

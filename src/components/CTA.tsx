@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function CTA() {
+export default function CTA({ title, description }: { title?: string; description?: string }) {
   const checkmarks = [
     "No long-term contracts",
     "Transparent pricing",
@@ -56,8 +56,14 @@ export default function CTA() {
           className="font-black text-white mb-6 leading-tight"
           style={{ fontSize: "clamp(2rem, 5.5vw, 3.2rem)", lineHeight: 1.15 }}
         >
-          Ready to Scale <br />
-          <span className="gradient-text-animated">Your Platform?</span>
+          {title ? (
+            title
+          ) : (
+            <>
+              Ready to Scale <br />
+              <span className="gradient-text-animated">Your Platform?</span>
+            </>
+          )}
         </motion.h2>
 
         <motion.p
@@ -67,7 +73,7 @@ export default function CTA() {
           transition={{ delay: 0.2 }}
           className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
         >
-          Connect with our design engineers to get a custom development roadmap for your application.
+          {description || "Connect with our design engineers to get a custom development roadmap for your application."}
         </motion.p>
 
         {/* Buttons Row */}
