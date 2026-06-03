@@ -4,6 +4,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import { ExternalLink, Monitor } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bespoke Web Development Portfolio Delhi | RYTINWEB",
+  description: "View our portfolio of custom websites, responsive UI designs, and SEO engines developed for businesses in Delhi NCR, Noida, Gurugram, and India.",
+  alternates: {
+    canonical: "https://rytinweb.in/portfolio",
+  },
+};
 
 export default function PortfolioPage() {
   const projects = [

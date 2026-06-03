@@ -5,10 +5,48 @@ import * as Icons from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SERVICE_ITEMS } from "@/constants/data";
+import { Metadata } from "next";
 
 interface Props {
   params: {
     slug: string;
+  };
+}
+
+export async function generateStaticParams() {
+  return SERVICE_ITEMS.map((item) => ({
+    slug: item.href.replace("/services/", ""),
+  }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const service = SERVICE_ITEMS.find((s) => s.href === `/services/${params.slug}`);
+  const isAds = params.slug === "google-ads-management";
+
+  const title = service 
+    ? `${service.title} Delhi | Custom Web Development RYTINWEB`
+    : isAds 
+      ? "Google Ads Management Services Delhi | RYTINWEB" 
+      : "Web Services Delhi | RYTINWEB";
+
+  const description = service 
+    ? `${service.description} Engineered for speed, custom-coded, and fully SEO-optimized by RYTINWEB in Delhi, Gurugram, and Noida.`
+    : isAds 
+      ? "Maximize your return on investment and drive instant sales leads with laser-focused Google PPC campaigns in Delhi NCR." 
+      : "Professional web development and design services based in Delhi, India.";
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `https://rytinweb.in/services/${params.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      url: `https://rytinweb.in/services/${params.slug}`,
+    }
   };
 }
 

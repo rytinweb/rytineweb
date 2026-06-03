@@ -2,6 +2,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import { Users, Target, Sparkles } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About RYTINWEB Delhi | Design & Web Development Agency",
+  description: "Learn about RYTINWEB, a premium design-forward web development agency based in Delhi, India. We build scalable digital architectures for fast-growing businesses.",
+  alternates: {
+    canonical: "https://rytinweb.in/who-we-are",
+  },
+};
 
 export default function WhoWeArePage() {
   const values = [

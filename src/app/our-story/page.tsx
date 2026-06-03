@@ -1,6 +1,15 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Story & Milestones | RYTINWEB Web Engineering Delhi",
+  description: "Read the journey of RYTINWEB from a small design studio to Delhi's leading custom web development and Next.js engineering agency.",
+  alternates: {
+    canonical: "https://rytinweb.in/our-story",
+  },
+};
 
 export default function OurStoryPage() {
   const milestones = [

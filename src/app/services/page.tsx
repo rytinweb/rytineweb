@@ -2,6 +2,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import ServicesSection from "@/components/Services";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Custom Web Development & Graphic Design Services Delhi | RYTINWEB",
+  description: "RYTINWEB offers custom website development, website maintenance, digital marketing, graphic design, and SEO services in Delhi, Noida, and Gurugram.",
+  alternates: {
+    canonical: "https://rytinweb.in/services",
+  },
+};
 
 export default function ServicesPage() {
   return (

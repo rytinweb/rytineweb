@@ -2,15 +2,39 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Preloader from "@/components/Preloader";
+import SchemaMarkup from "@/components/SchemaMarkup";
 
 const inter = Inter({ 
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
+export const viewport = {
+  themeColor: "#0A0A0A",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "RYTINWEB | Premium Web Design & Development Agency",
+  metadataBase: new URL('https://rytinweb.in'),
+  title: "RYTINWEB | Premium Web Design & Development Agency Delhi",
   description: "Bespoke digital design, custom front-end development, and high-performance SEO systems. Engineered for speed and conversion.",
+  alternates: {
+    canonical: "https://rytinweb.in",
+  },
+  openGraph: {
+    title: "RYTINWEB | Premium Web Design & Development Agency Delhi",
+    description: "Bespoke digital design, custom front-end development, and high-performance SEO systems. Engineered for speed and conversion.",
+    url: "https://rytinweb.in",
+    siteName: "RYTINWEB",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RYTINWEB | Premium Web Design & Development Agency Delhi",
+    description: "Bespoke digital design, custom front-end development, and high-performance SEO systems. Engineered for speed and conversion.",
+  },
   icons: {
     icon: [
       { url: "/logos/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -30,6 +54,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} min-h-screen flex flex-col bg-dark text-white antialiased font-sans`}>
         <Preloader />
+        <SchemaMarkup type="Organization" />
+        <SchemaMarkup type="ProfessionalService" />
+        <SchemaMarkup type="WebSite" />
         {children}
       </body>
     </html>

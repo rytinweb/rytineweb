@@ -12,6 +12,7 @@ export default function Hero() {
     lastName: "",
     email: "",
     phone: "",
+    company: "",
     service: "",
     _hp: "", // Honeypot spam protection
   });
@@ -69,7 +70,7 @@ export default function Hero() {
     const name = `${formData.firstName} ${formData.lastName}`.trim();
     const email = formData.email;
     const phone = formData.phone || "Not provided";
-    const company = "Not provided";
+    const company = formData.company || "Not provided";
     const service = formData.service;
     const message = "Inquiry submitted via Hero quick form.";
 
@@ -271,15 +272,27 @@ export default function Hero() {
                     )}
                   </div>
 
-                  <div>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="+91 98765 43210"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border border-[#27272A]"
-                    />
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <input
+                        type="tel"
+                        name="phone"
+                        placeholder="Phone (Optional)"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border border-[#27272A]"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        name="company"
+                        placeholder="Company"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/40 outline-none transition-all duration-200 focus:ring-2 focus:ring-white bg-[#111111]/50 border border-[#27272A]"
+                      />
+                    </div>
                   </div>
 
                   <div>
